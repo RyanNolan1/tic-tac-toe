@@ -25,7 +25,7 @@ body {
 #game-container {
   width: 100%;
   max-width: 320px;
-  height: 320px;
+  min-height: 320px;
   background-color: rgb(123, 131, 251);
   display: grid;
   grid-gap: 1em;
@@ -34,7 +34,9 @@ body {
 }
 
 .grid-item {
-    padding: 1em;
-    border: 1px solid #ddd;
+    border: 2px solid black;
     text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items:center;
   }
