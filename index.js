@@ -1,1 +1,1 @@
-import { gameBoard } from "./gameboard";
+import { theGameStructure } from "./gameboard";
