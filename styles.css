@@ -41,3 +41,8 @@ body {
     justify-content: center;
     align-items:center;
   }
+
+  .grid-item:hover {
+  cursor:pointer;
+  background-color:rgb(177, 241, 158);
+  }
