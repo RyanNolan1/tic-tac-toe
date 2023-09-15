@@ -6,8 +6,10 @@ const placeMarker = (function () {
     gridItem.forEach((element, index) => {
         element.addEventListener("click", function () {
         const X = ["X", "O", "X", "O", "X", "O", "X", "O", "X"]  
+        if (gridItem[index].innerHTML === "") {
       gridItem[index].innerHTML = X[whichMarker];
       whichMarker += 1;
+        }
     });
   });
 })();
