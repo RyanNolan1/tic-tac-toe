@@ -2,7 +2,7 @@ const theGameStructure = (function () {
   const gameBoard = {
     rows: 3,
     columns: 3,
-    gameArray: ["", "", "", "", "", "", "", "", "ga"],
+    gameArray: ["", "", "", "", "", "", "", "", ""],
   };
 
   return gameBoard;
