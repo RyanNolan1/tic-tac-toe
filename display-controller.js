@@ -14,6 +14,7 @@ const displayController = (function () {
     gridItem.forEach((element, index) => {
       element.addEventListener("click", function () {
         console.log("I've been clicked "+ index)
+        gridItem[index].style.backgroundColor = "red";
       });
     });
   }
