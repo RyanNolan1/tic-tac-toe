@@ -10,6 +10,12 @@ const displayController = (function () {
       cell.innerText = theGameStructure.gameArray[i];
       gameContainer.appendChild(cell).className = "grid-item";
     }
+      const gridItem = document.querySelectorAll('.grid-item');
+      gridItem.forEach(element => {
+        element.addEventListener("click", function() {
+            console.log("I've been clicked!")
+        })
+      })
   }
   renderGrid(theGameStructure.rows, theGameStructure.columns);
 })();
