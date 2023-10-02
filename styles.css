@@ -72,3 +72,8 @@ body {
   flex-direction:row;
   gap:24px;
 }
+
+#continue-button {
+  width:200px;
+  height:40px;
+}
