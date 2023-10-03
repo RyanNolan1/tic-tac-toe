@@ -1,4 +1,4 @@
-import theGameStructure from "./gameboard.js";
+// import theGameStructure from "./gameboard.js";
 
 const placeMarker = (function () {
     const gridItem = document.querySelectorAll(".grid-item");
