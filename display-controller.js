@@ -1,4 +1,4 @@
-import theGameStructure from "./gameboard.js";
+import theGameStructure from './gameboard.js';
 
 const displayController = (function () {
   const gameContainer = document.getElementById("game-container");
