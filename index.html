@@ -6,11 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
-</head>
-<body>
+  </head>
+  <body>
     <section id="container">
-        <section id="game-container"></section>
+      <section id="game-overlay">
+        <h2>Player 1, choose your marker</h2>
+        <form id="radio-container">
+          <label for="x-radio-input"> X </label><br />
+          <input
+            type="radio"
+            id="x-radio-input"
+            name="choose-marker"
+            value="X"
+          />
+          <label for="o-radio-input"> O </label><br />
+          <input
+            type="radio"
+            id="o-radio-input"
+            name="choose-marker"
+            value="O"
+          />
+        </form>
+        <button id="continue-button">Continue</button>
+      </section>
+      <section id="game-container"></section>
     </section>
     <script src="index.js" type="module"></script>
-</body>
+  </body>
 </html>
