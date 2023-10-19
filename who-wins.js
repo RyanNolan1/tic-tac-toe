@@ -3,6 +3,7 @@ const whoWins = (function () {
   const gridItem = gameContainer.querySelectorAll(".grid-item");
 
   let gameArray = ["", "", "", "", "", "", "", "", ""];
+  let moveCount = 0;
 
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
@@ -17,6 +18,9 @@ const whoWins = (function () {
       const diagonalUp = [gameArray[6], gameArray[4], gameArray[2]];
 
       const isItX = (marker) => marker === "X";
+      const isItO = (marker) => marker === "O";
+      moveCount++;
+
       if (
         topRow.every(isItX) ||
         middleRow.every(isItX) ||
@@ -28,10 +32,7 @@ const whoWins = (function () {
         diagonalUp.every(isItX)
       ) {
         console.log("X Wins!");
-      }
-
-      const isItO = (marker) => marker === "O";
-      if (
+      } else if (
         topRow.every(isItO) ||
         middleRow.every(isItO) ||
         bottomRow.every(isItO) ||
@@ -42,7 +43,13 @@ const whoWins = (function () {
         diagonalUp.every(isItO)
       ) {
         console.log("O Wins!");
+      } else if (moveCount === 9) {
+        console.log("It's a Draw!");
       }
+
+     
+
+
     });
   });
 })();
