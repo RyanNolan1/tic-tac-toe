@@ -7,10 +7,13 @@ const whoWins = (function () {
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
         gameArray.splice(index, 1, element.innerHTML)
-        console.log(gameArray);
+        // console.log(gameArray);
           const topRow = gameArray.slice(0, 3);
           const middleRow = gameArray.slice(3, 6);
           const bottomRow =  gameArray.slice(6, 9);
+          const diagonalDown = [gameArray[0], gameArray[4], gameArray[8]];
+          const diagonalUp = [gameArray[6], gameArray[4], gameArray[2]];
+          console.log(diagonalUp)
       });
   });
 })();
