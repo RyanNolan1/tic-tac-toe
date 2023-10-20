@@ -50,7 +50,7 @@ const whoWins = (function () {
      
 
 
-    });
+    }, {once : true});
   });
 })();
 
