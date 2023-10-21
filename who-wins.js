@@ -3,9 +3,13 @@ const whoWins = (function () {
   const gridItem = gameContainer.querySelectorAll(".grid-item");
   const gameOutComeOverlay = document.getElementById("game-outcome-overlay");
   const gameOutComeMessage = document.getElementById("game-outcome-message");
+  const xScore = document.getElementById("x-score");
+  const oScore = document.getElementById("o-score");
 
   let gameArray = ["", "", "", "", "", "", "", "", ""];
   let moveCount = 0;
+  let xWins = 0;
+  let oWins = 0;
 
   gridItem.forEach((element, index) => {
     element.addEventListener(
@@ -36,6 +40,8 @@ const whoWins = (function () {
           diagonalUp.every(isItX)
         ) {
           gameOutComeMessage.innerHTML = "X Wins!";
+          xWins += 1;
+          xScore.innerHTML = `X Score:${xWins}`
           gameOutComeOverlay.style.visibility = "visible";
         } else if (
           topRow.every(isItO) ||
@@ -48,6 +54,8 @@ const whoWins = (function () {
           diagonalUp.every(isItO)
         ) {
           gameOutComeMessage.innerHTML = "O Wins!";
+          oWins += 1;
+          oScore.innerHTML = `O Score:${oWins}`
           gameOutComeOverlay.style.visibility = "visible";
         } else if (moveCount === 9) {
           gameOutComeMessage.innerHTML = "It's a Draw!";
