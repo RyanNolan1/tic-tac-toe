@@ -3,7 +3,7 @@ let chosenMarker;
 const pickMarker = (function () {
   const chooseMarker = document.getElementsByName("choose-marker");
   const continueButton = document.getElementById("continue-button");
-  const gameOverLay = document.getElementById("game-overlay");
+  const gameOverLay = document.getElementById("game-start-overlay");
 
   continueButton.addEventListener("click", () => {
     gameOverLay.style.display = 'none';
