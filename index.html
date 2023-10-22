@@ -9,7 +9,16 @@
   </head>
   <body>
     <section id="container">
-      <section id="game-overlay">
+      <section id="game-outcome-overlay">
+        <section id="game-outcome-content">
+        <p id="game-outcome-message"></p>
+        <section id="game-outcome-overlay-buttons">
+          <button>Next Round</button>
+          <button>New Game</button>
+        </section>
+        </section>
+      </section>
+      <section id="game-start-overlay">
         <h2>Player 1, choose your marker</h2>
         <form id="radio-container">
           <label for="x-radio-input"> X </label><br />
@@ -29,8 +38,12 @@
         </form>
         <button id="continue-button">Continue</button>
       </section>
+      <section id="game-score">
+        <p id="x-score">X Score: O</p>
+        <p id="o-score">O Score: O</p>
+      </section>
       <section id="game-container"></section>
-    </section>
+  </section>
     <script src="index.js" type="module"></script>
   </body>
 </html>

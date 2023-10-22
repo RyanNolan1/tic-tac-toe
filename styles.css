@@ -25,6 +25,7 @@ body {
   height: 100vh;
   max-width: 600px;
   background-color: rgb(208, 208, 208);
+  gap:40px;
 }
 
 #game-container {
@@ -53,27 +54,74 @@ body {
   background-color: rgb(177, 241, 158);
 }
 
-#game-overlay {
-  width:400px;
-  height:600px;
-  position:absolute;
-  z-index:999;
-  background-color:rgb(148, 155, 153);
+#game-start-overlay {
+  width: 400px;
+  height: 600px;
+  position: absolute;
+  z-index: 999;
+  background-color: rgb(148, 155, 153);
   filter: drop-shadow(20px 20px 4px #323234);
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items:center;
-  gap:24px;
+  align-items: center;
+  gap: 24px;
 }
 
 #radio-container {
-  display:flex;
-  flex-direction:row;
-  gap:24px;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
 }
 
 #continue-button {
-  width:200px;
-  height:40px;
+  width: 200px;
+  height: 40px;
+}
+
+#game-outcome-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.898);
+  position: absolute;
+  z-index: 999;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-outcome-content {
+  background-color: rgb(255, 255, 255);
+  height: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#game-outcome-message {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+}
+
+#game-outcome-overlay-buttons {
+  height: 30px;
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+#game-score {
+  font-family: Arial, Helvetica, sans-serif;
+  height:50px;
+  width:320px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size:22px;
 }
