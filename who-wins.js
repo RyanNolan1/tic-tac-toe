@@ -3,7 +3,7 @@ const whoWins = (function () {
   const gridItem = gameContainer.querySelectorAll(".grid-item");
   const gameOutComeOverlay = document.getElementById("game-outcome-overlay");
   const gameOutComeMessage = document.getElementById("game-outcome-message");
-  const nextRoundButton = document.getElementById("next-round-button");
+  const newGameButton = document.getElementById("new-game-button");
   const xScore = document.getElementById("x-score");
   const oScore = document.getElementById("o-score");
 
@@ -11,6 +11,11 @@ const whoWins = (function () {
   let moveCount = 0;
   let xWins = 0;
   let oWins = 0;
+
+  newGameButton.addEventListener("click", function() {
+    xWins = 0;
+    oWins = 0;
+  });
 
   gridItem.forEach((element, index) => {
     element.addEventListener(
