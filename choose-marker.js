@@ -6,7 +6,7 @@ const pickMarker = (function () {
   const gameOverLay = document.getElementById("game-start-overlay");
 
   continueButton.addEventListener("click", () => {
-    gameOverLay.style.display = 'none';
+    gameOverLay.style.visibility = 'hidden';
     chooseMarker.forEach((element) => {
       if (element.checked && element.value === "X") {
         chosenMarker = ["X", "O", "X", "O", "X", "O", "X", "O", "X"];

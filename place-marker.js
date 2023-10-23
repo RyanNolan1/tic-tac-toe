@@ -1,6 +1,7 @@
 import { chosenMarker } from "./choose-marker.js";
 
 const placeMarker = (function () {
+  const gameStartOverlay = document.getElementById("game-start-overlay");
   const gameOutComeOverlay = document.getElementById("game-outcome-overlay");
   const nextRoundButton = document.getElementById("next-round-button");
   const newGameButton = document.getElementById("new-game-button");
@@ -33,8 +34,9 @@ const placeMarker = (function () {
     gridItem.forEach((element) => {
       element.innerHTML = "";
     });
-    xScore.innerHTML = "X Score: O"
-    oScore.innerHTML = "O Score: O"
+    xScore.innerHTML = "X Score: O";
+    oScore.innerHTML = "O Score: O";
+    gameStartOverlay.style.visibility = 'visible';;
   });
 })();
 
