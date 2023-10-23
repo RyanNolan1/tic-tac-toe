@@ -3,6 +3,7 @@ const whoWins = (function () {
   const gridItem = gameContainer.querySelectorAll(".grid-item");
   const gameOutComeOverlay = document.getElementById("game-outcome-overlay");
   const gameOutComeMessage = document.getElementById("game-outcome-message");
+  const nextRoundButton = document.getElementById("next-round-button");
   const xScore = document.getElementById("x-score");
   const oScore = document.getElementById("o-score");
 
@@ -43,6 +44,8 @@ const whoWins = (function () {
           xWins += 1;
           xScore.innerHTML = `X Score:${xWins}`
           gameOutComeOverlay.style.visibility = "visible";
+          gameArray = ["", "", "", "", "", "", "", "", ""]
+          moveCount = 0;
         } else if (
           topRow.every(isItO) ||
           middleRow.every(isItO) ||
@@ -57,12 +60,15 @@ const whoWins = (function () {
           oWins += 1;
           oScore.innerHTML = `O Score:${oWins}`
           gameOutComeOverlay.style.visibility = "visible";
+          gameArray = ["", "", "", "", "", "", "", "", ""]
+          moveCount = 0;
         } else if (moveCount === 9) {
           gameOutComeMessage.innerHTML = "It's a Draw!";
           gameOutComeOverlay.style.visibility = "visible";
+          gameArray = ["", "", "", "", "", "", "", "", ""]
+          moveCount = 0;
         }
-      },
-      { once: true }
+      }
     );
   });
 })();
