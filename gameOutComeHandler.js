@@ -22,9 +22,9 @@ const whoWins = (function () {
       "click",
       function () {
         gameArray.splice(index, 1, element.innerHTML);
-        const topRow = gameArray.slice(0, 3);
-        const middleRow = gameArray.slice(3, 6);
-        const bottomRow = gameArray.slice(6, 9);
+        const topRow = [gameArray[0], gameArray[1], gameArray[2]];
+        const middleRow = [gameArray[3], gameArray[4], gameArray[5]];
+        const bottomRow = [gameArray[6], gameArray[7], gameArray[8]];
         const firstColumn = [gameArray[0], gameArray[3], gameArray[6]];
         const middleColumn = [gameArray[1], gameArray[4], gameArray[7]];
         const thirdColumn = [gameArray[2], gameArray[5], gameArray[8]];
