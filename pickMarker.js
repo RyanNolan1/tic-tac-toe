@@ -16,7 +16,7 @@ const pickMarker = (function () {
     });
     return chosenMarker;
   });
-
+  
 })();
 
 export { chosenMarker };

@@ -4,9 +4,8 @@ const theGameStructure = (function () {
     columns: 3,
     gameArray: ["", "", "", "", "", "", "", "", ""],
   };
-  
-  return gameBoard;
 
+  return gameBoard;
 
   //   const playerFactory = (name) => {
   //     return name;

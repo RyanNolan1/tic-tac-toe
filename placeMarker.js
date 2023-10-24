@@ -1,4 +1,4 @@
-import { chosenMarker } from "./choose-marker.js";
+import { chosenMarker } from "./pickMarker.js";
 
 const placeMarker = (function () {
   const gameStartOverlay = document.getElementById("game-start-overlay");
