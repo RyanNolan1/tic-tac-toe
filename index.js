@@ -1,3 +1,3 @@
-import displayController from "./display-controller.js";
-import placeMarker from "./place-marker.js";
-import whoWins from "./who-wins.js";
+import displayController from "./displayController.js";
+import markerHandler from "./markerHandler.js";
+import whoWins from "./whoWins.js";
