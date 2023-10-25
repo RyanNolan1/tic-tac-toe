@@ -37,6 +37,7 @@ const markerHandler = (function () {
     gameOutComeOverlay.style.visibility = "hidden";
     gridItem.forEach((element) => {
       element.innerHTML = "";
+    element.style.backgroundColor = "white";
     });
   });
 
@@ -45,6 +46,7 @@ const markerHandler = (function () {
     gameOutComeOverlay.style.visibility = "hidden";
     gridItem.forEach((element) => {
       element.innerHTML = "";
+      element.style.backgroundColor = "white";
     });
     xScore.innerHTML = "X Score: O";
     oScore.innerHTML = "O Score: O";
