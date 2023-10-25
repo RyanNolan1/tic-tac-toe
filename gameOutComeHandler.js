@@ -19,6 +19,7 @@ const whoWins = (function () {
 
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
+      if (gameArray[index] === "") {
       gameArray.splice(index, 1, element.innerHTML);
       const topRow = [gameArray[0], gameArray[1], gameArray[2]];
       const middleRow = [gameArray[3], gameArray[4], gameArray[5]];
@@ -32,6 +33,7 @@ const whoWins = (function () {
       const isItX = (marker) => marker === "X";
       const isItO = (marker) => marker === "O";
       moveCount++;
+      
 
       function xWins() {
         gameOutComeMessage.innerHTML = "X Wins!";
@@ -136,7 +138,7 @@ const whoWins = (function () {
         gameOutComeOverlay.style.visibility = "visible";
         gameArray = ["", "", "", "", "", "", "", "", ""];
         moveCount = 0;
-      }
+      }}
     });
   });
 })();
