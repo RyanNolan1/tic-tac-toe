@@ -94,8 +94,8 @@ const whoWins = (function () {
         gridItem[2].style.backgroundColor = "red";
         xWins();
       } else if (topRow.every(isItO)) {
-        gridItem[6].style.backgroundColor = "yellow";
-        gridItem[4].style.backgroundColor = "yellow";
+        gridItem[0].style.backgroundColor = "yellow";
+        gridItem[1].style.backgroundColor = "yellow";
         gridItem[2].style.backgroundColor = "yellow";
         oWins();
       } else if (middleRow.every(isItO)) {
