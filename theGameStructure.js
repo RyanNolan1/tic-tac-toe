@@ -4,7 +4,6 @@ const theGameStructure = (function () {
   const playerTwoName = document.getElementById("player-2-name");
 
   const playerFactory = (name) => {
-    console.log(name);
     return name;
   };
   
@@ -19,7 +18,6 @@ const theGameStructure = (function () {
   function createPlayer() {
     gameBoard.playerOne = playerFactory(playerOneName.value);
     gameBoard.playerTwo = playerFactory(playerTwoName.value);
-    console.log(gameBoard);
   }
 
   continueButton.addEventListener("click", createPlayer);

@@ -1,3 +1,5 @@
+import theGameStructure from './theGameStructure.js';
+
 const chooseMarker = document.getElementsByName("choose-marker");
 const continueButton = document.getElementById("continue-button");
 const gameStartOverlay = document.getElementById("game-start-overlay");
@@ -8,12 +10,16 @@ const gridItem = document.querySelectorAll(".grid-item");
 const xScore = document.getElementById("x-score");
 const oScore = document.getElementById("o-score");
 
-const markerHandler = (function () {
 
+
+const markerHandler = (function () {
+  
   let chosenMarker;
   let whichMarker = 0;
-
+  
   continueButton.addEventListener("click", () => {
+    xScore.innerHTML = `${theGameStructure.playerOne} Score: 0`;
+    oScore.innerHTML = `${theGameStructure.playerTwo} Score: 0`;
     gameStartOverlay.style.visibility = "hidden";
     chooseMarker.forEach((element) => {
       if (element.checked && element.value === "X") {
@@ -49,8 +55,8 @@ const markerHandler = (function () {
       element.innerHTML = "";
       element.style.backgroundColor = "white";
     });
-    xScore.innerHTML = "X Score: O";
-    oScore.innerHTML = "O Score: O";
+    xScore.innerHTML = `${theGameStructure.playerOne} Score: 0`;
+    oScore.innerHTML = `${theGameStructure.playerTwo} Score: 0`;
     gameStartOverlay.style.visibility = "visible";
   });
 })();
