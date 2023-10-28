@@ -50,28 +50,28 @@ const whoWins = (function () {
 
         if (topRow.every(isItX) || topRow.every(isItO)) {
           [0, 1, 2].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner("X");
+          announceWinner(gridItem[0].innerHTML);
         } else if (middleRow.every(isItX) || middleRow.every(isItO)) {
           [3, 4, 5].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner("X");
+          announceWinner(gridItem[0].innerHTML);
         } else if (bottomRow.every(isItX) || bottomRow.every(isItO)) {
           [6, 7, 8].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner("X");
+          announceWinner(gridItem[0].innerHTML);
         } else if (firstColumn.every(isItX) || firstColumn.every(isItO)) {
           [0, 3, 6].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner("X");
+          announceWinner(gridItem[0].innerHTML);
         } else if (middleColumn.every(isItX) || middleColumn.every(isItO)) {
           [1, 4, 7].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner("X");
+          announceWinner(gridItem[0].innerHTML);
         } else if (thirdColumn.every(isItX) || thirdColumn.every(isItO)) {
           [2, 5, 8].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner("X");
+          announceWinner(gridItem[0].innerHTML);
         } else if (diagonalDown.every(isItX) || diagonalDown.every(isItO)) {
           [0, 4, 8].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner("X");
+          announceWinner(gridItem[0].innerHTML);
         } else if (diagonalUp.every(isItX) || diagonalUp.every(isItO)) {
           [6, 4, 2].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner("X");
+          announceWinner(gridItem[0].innerHTML);
         } else if (moveCount === 9) {
           gameOutComeMessage.innerHTML = "It's a Draw!";
           gameOutComeOverlay.style.visibility = "visible";
