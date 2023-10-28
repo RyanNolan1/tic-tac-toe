@@ -50,28 +50,28 @@ const whoWins = (function () {
 
         if (topRow.every(isItX) || topRow.every(isItO)) {
           [0, 1, 2].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner(gridItem[0].innerHTML);
+          announceWinner(topRow[0]);
         } else if (middleRow.every(isItX) || middleRow.every(isItO)) {
           [3, 4, 5].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner(gridItem[0].innerHTML);
+          announceWinner(middleRow[0]);
         } else if (bottomRow.every(isItX) || bottomRow.every(isItO)) {
           [6, 7, 8].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner(gridItem[0].innerHTML);
+          announceWinner(bottomRow[0]);
         } else if (firstColumn.every(isItX) || firstColumn.every(isItO)) {
           [0, 3, 6].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner(gridItem[0].innerHTML);
+          announceWinner(firstColumn[0]);
         } else if (middleColumn.every(isItX) || middleColumn.every(isItO)) {
           [1, 4, 7].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner(gridItem[0].innerHTML);
+          announceWinner(middleColumn[0]);
         } else if (thirdColumn.every(isItX) || thirdColumn.every(isItO)) {
           [2, 5, 8].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner(gridItem[0].innerHTML);
+          announceWinner(thirdColumn[0]);
         } else if (diagonalDown.every(isItX) || diagonalDown.every(isItO)) {
           [0, 4, 8].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner(gridItem[0].innerHTML);
+          announceWinner(diagonalDown[0]);
         } else if (diagonalUp.every(isItX) || diagonalUp.every(isItO)) {
           [6, 4, 2].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
-          announceWinner(gridItem[0].innerHTML);
+          announceWinner(diagonalUp[0]);
         } else if (moveCount === 9) {
           gameOutComeMessage.innerHTML = "It's a Draw!";
           gameOutComeOverlay.style.visibility = "visible";
