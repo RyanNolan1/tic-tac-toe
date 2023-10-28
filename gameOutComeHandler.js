@@ -41,93 +41,37 @@ const whoWins = (function () {
           moveCount = 0;
           if (winningMarker === "X") {
             xWinsCount += 1;
-            xScore.innerHTML = `X Score:${xWinsCount}`;
+            xScore.innerHTML = `X Score: ${xWinsCount}`;
           } else if (winningMarker === "O") {
             oWinsCount += 1;
-            oScore.innerHTML = `O Score:${oWinsCount}`;
+            oScore.innerHTML = `O Score: ${oWinsCount}`;
           }
         }
 
-        if (topRow.every(isItX)) {
-          gridItem[0].style.backgroundColor = "red";
-          gridItem[1].style.backgroundColor = "red";
-          gridItem[2].style.backgroundColor = "red";
+        if (topRow.every(isItX) || topRow.every(isItO)) {
+          [0, 1, 2].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
           announceWinner("X");
-        } else if (middleRow.every(isItX)) {
-          gridItem[3].style.backgroundColor = "red";
-          gridItem[4].style.backgroundColor = "red";
-          gridItem[5].style.backgroundColor = "red";
+        } else if (middleRow.every(isItX) || middleRow.every(isItO)) {
+          [3, 4, 5].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
           announceWinner("X");
-        } else if (bottomRow.every(isItX)) {
-          gridItem[6].style.backgroundColor = "red";
-          gridItem[7].style.backgroundColor = "red";
-          gridItem[8].style.backgroundColor = "red";
+        } else if (bottomRow.every(isItX) || bottomRow.every(isItO)) {
+          [6, 7, 8].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
           announceWinner("X");
-        } else if (firstColumn.every(isItX)) {
-          gridItem[0].style.backgroundColor = "red";
-          gridItem[3].style.backgroundColor = "red";
-          gridItem[6].style.backgroundColor = "red";
+        } else if (firstColumn.every(isItX) || firstColumn.every(isItO)) {
+          [0, 3, 6].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
           announceWinner("X");
-        } else if (middleColumn.every(isItX)) {
-          gridItem[1].style.backgroundColor = "red";
-          gridItem[4].style.backgroundColor = "red";
-          gridItem[7].style.backgroundColor = "red";
+        } else if (middleColumn.every(isItX) || middleColumn.every(isItO)) {
+          [1, 4, 7].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
           announceWinner("X");
-        } else if (thirdColumn.every(isItX)) {
-          gridItem[2].style.backgroundColor = "red";
-          gridItem[5].style.backgroundColor = "red";
-          gridItem[8].style.backgroundColor = "red";
+        } else if (thirdColumn.every(isItX) || thirdColumn.every(isItO)) {
+          [2, 5, 8].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
           announceWinner("X");
-        } else if (diagonalDown.every(isItX)) {
-          gridItem[0].style.backgroundColor = "red";
-          gridItem[4].style.backgroundColor = "red";
-          gridItem[8].style.backgroundColor = "red";
+        } else if (diagonalDown.every(isItX) || diagonalDown.every(isItO)) {
+          [0, 4, 8].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
           announceWinner("X");
-        } else if (diagonalUp.every(isItX)) {
-          gridItem[6].style.backgroundColor = "red";
-          gridItem[4].style.backgroundColor = "red";
-          gridItem[2].style.backgroundColor = "red";
+        } else if (diagonalUp.every(isItX) || diagonalUp.every(isItO)) {
+          [6, 4, 2].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
           announceWinner("X");
-        } else if (topRow.every(isItO)) {
-          gridItem[0].style.backgroundColor = "yellow";
-          gridItem[1].style.backgroundColor = "yellow";
-          gridItem[2].style.backgroundColor = "yellow";
-          announceWinner("O");
-        } else if (middleRow.every(isItO)) {
-          gridItem[3].style.backgroundColor = "yellow";
-          gridItem[4].style.backgroundColor = "yellow";
-          gridItem[5].style.backgroundColor = "yellow";
-          announceWinner("O");
-        } else if (bottomRow.every(isItO)) {
-          gridItem[6].style.backgroundColor = "yellow";
-          gridItem[7].style.backgroundColor = "yellow";
-          gridItem[8].style.backgroundColor = "yellow";
-          announceWinner("O");
-        } else if (firstColumn.every(isItO)) {
-          gridItem[0].style.backgroundColor = "yellow";
-          gridItem[3].style.backgroundColor = "yellow";
-          gridItem[6].style.backgroundColor = "yellow";
-          announceWinner("O");
-        } else if (middleColumn.every(isItO)) {
-          gridItem[1].style.backgroundColor = "yellow";
-          gridItem[4].style.backgroundColor = "yellow";
-          gridItem[7].style.backgroundColor = "yellow";
-          announceWinner("O");
-        } else if (thirdColumn.every(isItO)) {
-          gridItem[2].style.backgroundColor = "yellow";
-          gridItem[5].style.backgroundColor = "yellow";
-          gridItem[8].style.backgroundColor = "yellow";
-          announceWinner("O");
-        } else if (diagonalDown.every(isItO)) {
-          gridItem[0].style.backgroundColor = "yellow";
-          gridItem[4].style.backgroundColor = "yellow";
-          gridItem[8].style.backgroundColor = "yellow";
-          announceWinner("O");
-        } else if (diagonalUp.every(isItO)) {
-          gridItem[6].style.backgroundColor = "yellow";
-          gridItem[4].style.backgroundColor = "yellow";
-          gridItem[2].style.backgroundColor = "yellow";
-          announceWinner("O");
         } else if (moveCount === 9) {
           gameOutComeMessage.innerHTML = "It's a Draw!";
           gameOutComeOverlay.style.visibility = "visible";
