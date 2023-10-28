@@ -1,4 +1,4 @@
-import theGameStructure from './theGameStructure.js';
+import theGameStructure from "./theGameStructure.js";
 
 const gameContainer = document.getElementById("game-container");
 const gridItem = gameContainer.querySelectorAll(".grid-item");
@@ -9,7 +9,6 @@ const xScore = document.getElementById("x-score");
 const oScore = document.getElementById("o-score");
 
 const whoWins = (function () {
-
   let gameArray = ["", "", "", "", "", "", "", "", ""];
   let moveCount = 0;
   let xWinsCount = 0;
@@ -45,9 +44,11 @@ const whoWins = (function () {
           if (winningMarker === "X") {
             xWinsCount += 1;
             xScore.innerHTML = `${theGameStructure.playerOne} Score: ${xWinsCount}`;
+            gameOutComeMessage.innerHTML = `${theGameStructure.playerOne} Score: ${xWinsCount}`;
           } else if (winningMarker === "O") {
             oWinsCount += 1;
             oScore.innerHTML = `${theGameStructure.playerTwo} Score: ${oWinsCount}`;
+            gameOutComeMessage.innerHTML = `${theGameStructure.playerTwo} Score: ${oWinsCount}`;
           }
         }
 
