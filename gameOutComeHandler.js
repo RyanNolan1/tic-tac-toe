@@ -1,11 +1,14 @@
+import theGameStructure from './theGameStructure.js';
+
+const gameContainer = document.getElementById("game-container");
+const gridItem = gameContainer.querySelectorAll(".grid-item");
+const gameOutComeOverlay = document.getElementById("game-outcome-overlay");
+const gameOutComeMessage = document.getElementById("game-outcome-message");
+const newGameButton = document.getElementById("new-game-button");
+const xScore = document.getElementById("x-score");
+const oScore = document.getElementById("o-score");
+
 const whoWins = (function () {
-  const gameContainer = document.getElementById("game-container");
-  const gridItem = gameContainer.querySelectorAll(".grid-item");
-  const gameOutComeOverlay = document.getElementById("game-outcome-overlay");
-  const gameOutComeMessage = document.getElementById("game-outcome-message");
-  const newGameButton = document.getElementById("new-game-button");
-  const xScore = document.getElementById("x-score");
-  const oScore = document.getElementById("o-score");
 
   let gameArray = ["", "", "", "", "", "", "", "", ""];
   let moveCount = 0;
@@ -41,10 +44,10 @@ const whoWins = (function () {
           moveCount = 0;
           if (winningMarker === "X") {
             xWinsCount += 1;
-            xScore.innerHTML = `X Score: ${xWinsCount}`;
+            xScore.innerHTML = `${theGameStructure.playerOne} Score: ${xWinsCount}`;
           } else if (winningMarker === "O") {
             oWinsCount += 1;
-            oScore.innerHTML = `O Score: ${oWinsCount}`;
+            oScore.innerHTML = `${theGameStructure.playerTwo} Score: ${oWinsCount}`;
           }
         }
 
