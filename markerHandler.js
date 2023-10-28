@@ -9,6 +9,7 @@ const xScore = document.getElementById("x-score");
 const oScore = document.getElementById("o-score");
 
 const markerHandler = (function () {
+
   let chosenMarker;
   let whichMarker = 0;
 

@@ -7,11 +7,6 @@ const theGameStructure = (function () {
 
   return gameBoard;
 
-  //   const playerFactory = (name) => {
-  //     return name;
-  //   };
-
-  //   const gameFlow = {};
 })();
 
 export default theGameStructure;

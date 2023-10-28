@@ -39,6 +39,11 @@ body {
   grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
 
+#player-1-message {
+  text-align: center;
+  width:80%;
+}
+
 .grid-item {
   font-family: "VampireWars", sans-serif;
   font-size: 5rem;
