@@ -18,8 +18,8 @@ const markerHandler = (function () {
   let whichMarker = 0;
   
   continueButton.addEventListener("click", () => {
-    xScore.innerHTML = `${theGameStructure.playerOne} Score: 0`;
-    oScore.innerHTML = `${theGameStructure.playerTwo} Score: 0`;
+    xScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
+    oScore.innerHTML = `${theGameStructure.playerTwo} (O) Score: 0`;
     gameStartOverlay.style.visibility = "hidden";
     chooseMarker.forEach((element) => {
       if (element.checked && element.value === "X") {
@@ -55,8 +55,8 @@ const markerHandler = (function () {
       element.innerHTML = "";
       element.style.backgroundColor = "white";
     });
-    xScore.innerHTML = `${theGameStructure.playerOne} Score: 0`;
-    oScore.innerHTML = `${theGameStructure.playerTwo} Score: 0`;
+    xScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
+    oScore.innerHTML = `${theGameStructure.playerTwo} (O) Score: 0`;
     gameStartOverlay.style.visibility = "visible";
   });
 })();

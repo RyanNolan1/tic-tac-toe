@@ -43,12 +43,12 @@ const whoWins = (function () {
           moveCount = 0;
           if (winningMarker === "X") {
             xWinsCount += 1;
-            xScore.innerHTML = `${theGameStructure.playerOne} Score: ${xWinsCount}`;
-            gameOutComeMessage.innerHTML = `${theGameStructure.playerOne} Score: ${xWinsCount}`;
+            xScore.innerHTML = `${theGameStructure.playerOne} (X) Score: ${xWinsCount}`;
+            gameOutComeMessage.innerHTML = `${theGameStructure.playerOne} (X) Wins!`;
           } else if (winningMarker === "O") {
             oWinsCount += 1;
-            oScore.innerHTML = `${theGameStructure.playerTwo} Score: ${oWinsCount}`;
-            gameOutComeMessage.innerHTML = `${theGameStructure.playerTwo} Score: ${oWinsCount}`;
+            oScore.innerHTML = `${theGameStructure.playerTwo} (O) Score: ${oWinsCount}`;
+            gameOutComeMessage.innerHTML = `${theGameStructure.playerTwo} (O) Wins!`;
           }
         }
 
