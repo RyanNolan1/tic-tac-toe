@@ -11,15 +11,18 @@
     <section id="container">
       <section id="game-outcome-overlay">
         <section id="game-outcome-content">
-        <p id="game-outcome-message"></p>
-        <section id="game-outcome-overlay-buttons">
-          <button id="next-round-button">Next Round</button>
-          <button id="new-game-button">New Game</button>
-        </section>
+          <p id="game-outcome-message"></p>
+          <section id="game-outcome-overlay-buttons">
+            <button id="next-round-button">Next Round</button>
+            <button id="new-game-button">New Game</button>
+          </section>
         </section>
       </section>
       <section id="game-start-overlay">
-        <h2>Player 1, choose your marker</h2>
+        <label id="player-1-message" for="player-1-name"
+          >Player 1, enter your name and choose your marker:</label
+        >
+        <input type="text" id="player-1-name" name="player-1-name" />
         <form id="radio-container">
           <label for="x-radio-input"> X </label><br />
           <input
@@ -35,15 +38,23 @@
             name="choose-marker"
             value="O"
           />
+          
         </form>
+        <label id="player-2-message" for="player-2-name"
+        >Player 2, please enter your name</label
+      >
+      <input type="text" id="player-2-name" name="player-2-name" />
         <button id="continue-button">Continue</button>
       </section>
+      
       <section id="game-score">
         <p id="x-score">X Score: O</p>
         <p id="o-score">O Score: O</p>
       </section>
+      
+      
       <section id="game-container"></section>
-  </section>
+    </section>
     <script src="index.js" type="module"></script>
   </body>
 </html>
