@@ -1,6 +1,7 @@
-import theGameStructure from './theGameStructure.js';
+import theGameStructure from "./theGameStructure.js";
 
 const chooseMarker = document.getElementsByName("choose-marker");
+const chooseOpponent = document.getElementsByName("choose-opponent");
 const continueButton = document.getElementById("continue-button");
 const gameStartOverlay = document.getElementById("game-start-overlay");
 const gameOutComeOverlay = document.getElementById("game-outcome-overlay");
@@ -10,13 +11,11 @@ const gridItem = document.querySelectorAll(".grid-item");
 const xScore = document.getElementById("x-score");
 const oScore = document.getElementById("o-score");
 
-
-
 const markerHandler = (function () {
-  
+  let chosenOpponent;
   let chosenMarker;
   let whichMarker = 0;
-  
+
   continueButton.addEventListener("click", () => {
     xScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
     oScore.innerHTML = `${theGameStructure.playerTwo} (O) Score: 0`;
@@ -26,6 +25,13 @@ const markerHandler = (function () {
         chosenMarker = ["X", "O", "X", "O", "X", "O", "X", "O", "X"];
       } else if (element.checked && element.value === "O") {
         chosenMarker = ["O", "X", "O", "X", "O", "X", "O", "X", "O"];
+      }
+    });
+    chooseOpponent.forEach((element) => {
+      if (element.checked && element.value === "AI") {
+        chosenOpponent = "AI";
+      } else if (element.checked && element.value === "Player") {
+        chosenOpponent = "Player";
       }
     });
   });
@@ -44,7 +50,7 @@ const markerHandler = (function () {
     gameOutComeOverlay.style.visibility = "hidden";
     gridItem.forEach((element) => {
       element.innerHTML = "";
-    element.style.backgroundColor = "white";
+      element.style.backgroundColor = "white";
     });
   });
 
