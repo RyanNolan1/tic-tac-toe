@@ -30,6 +30,7 @@ const markerHandler = (function () {
     chooseOpponent.forEach((element) => {
       if (element.checked && element.value === "AI") {
         chosenOpponent = "AI";
+        oScore.innerHTML = `AI (O) Score: 0`;
       } else if (element.checked && element.value === "Player") {
         chosenOpponent = "Player";
       }
