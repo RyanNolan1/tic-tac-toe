@@ -38,21 +38,42 @@
             name="choose-marker"
             value="O"
           />
-          
         </form>
-        <label id="player-2-message" for="player-2-name"
-        >Player 2, please enter your name</label
-      >
-      <input type="text" id="player-2-name" name="player-2-name" />
+
+        <label id="player-1-message" for="player-1-name"
+          >Choose your opponent:</label
+        >
+
+        <form id="ai-container">
+          <label for="x-radio-input"> AI </label><br />
+          <input
+            type="radio"
+            id="x-radio-input"
+            name="choose-marker"
+            value="X"
+          />
+          <label for="o-radio-input"> Player </label><br />
+          <input
+            type="radio"
+            id="o-radio-input"
+            name="choose-marker"
+            value="O"
+          />
+        </form>
+        <section id="player-2-container">
+          <label id="player-2-message" for="player-2-name"
+            >Player 2, please enter your name</label
+          >
+          <input type="text" id="player-2-name" name="player-2-name" />
+        </section>
         <button id="continue-button">Continue</button>
       </section>
-      
+
       <section id="game-score">
         <p id="x-score">X Score: O</p>
         <p id="o-score">O Score: O</p>
       </section>
-      
-      
+
       <section id="game-container"></section>
     </section>
     <script src="index.js" type="module"></script>

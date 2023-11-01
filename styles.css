@@ -79,6 +79,16 @@ body {
   gap: 24px;
 }
 
+#ai-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+#player-2-container {
+  display:none;
+}
+
 #continue-button {
   width: 200px;
   height: 40px;
