@@ -27,11 +27,35 @@ const markerHandler = (function () {
     });
   });
 
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
       if (gridItem[index].innerHTML === "") {
         gridItem[index].innerHTML = chosenMarker[whichMarker];
         whichMarker += 1;
+      }
+      if (theGameStructure.playerTwo === "AI") {
+        let emptyCellIndex = [];
+        gridItem.forEach((element, index) => {
+          if (element.innerHTML === "") {
+            emptyCellIndex.push(index);
+          }
+        });
+        let randomIndex =
+        emptyCellIndex[Math.floor(Math.random() * emptyCellIndex.length)];
+          console.log(randomIndex);
+          gridItem[randomIndex].innerHTML = chosenMarker[whichMarker];
+        
+        // randomIndex = chosenMarker[whichMarker];
+        // whichMarker += 1;
+        // if (gridItem[randomCell].innerHTML === "") {
+        //   gridItem[randomCell].innerHTML = chosenMarker[whichMarker];
+
+        // } else {
+        // }
       }
     });
   });
