@@ -36,26 +36,24 @@ const markerHandler = (function () {
       if (gridItem[index].innerHTML === "") {
         gridItem[index].innerHTML = chosenMarker[whichMarker];
         whichMarker += 1;
-      }
-      if (theGameStructure.playerTwo === "AI") {
-        let emptyCellIndex = [];
-        gridItem.forEach((element, index) => {
-          if (element.innerHTML === "") {
-            emptyCellIndex.push(index);
+        if (theGameStructure.playerTwo === "AI") {
+          let emptyCellIndex = [];
+          gridItem.forEach((element, index) => {
+            if (element.innerHTML === "") {
+              emptyCellIndex.push(index);
+            }
+          });
+          let randomIndex =
+            emptyCellIndex[Math.floor(Math.random() * emptyCellIndex.length)];
+          if (emptyCellIndex.length > 1) {
+            gridItem[randomIndex].innerHTML = chosenMarker[whichMarker];
+            whichMarker += 1;
           }
-        });
-        let randomIndex =
-        emptyCellIndex[Math.floor(Math.random() * emptyCellIndex.length)];
-          console.log(randomIndex);
-          gridItem[randomIndex].innerHTML = chosenMarker[whichMarker];
-        
-        // randomIndex = chosenMarker[whichMarker];
-        // whichMarker += 1;
-        // if (gridItem[randomCell].innerHTML === "") {
-        //   gridItem[randomCell].innerHTML = chosenMarker[whichMarker];
 
-        // } else {
-        // }
+          emptyCellIndex.forEach((element, index) => {
+            if (element === randomIndex) emptyCellIndex.splice(index, 1);
+          });
+        }
       }
     });
   });
