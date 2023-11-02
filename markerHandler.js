@@ -27,10 +27,6 @@ const markerHandler = (function () {
     });
   });
 
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
-
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
       if (gridItem[index].innerHTML === "") {
