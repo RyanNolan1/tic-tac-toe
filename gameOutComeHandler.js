@@ -80,7 +80,7 @@ const whoWins = (function () {
         } else if (diagonalUp.every(isItX) || diagonalUp.every(isItO)) {
           [6, 4, 2].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
           announceWinner(diagonalUp[0]);
-        } else if (moveCount === 9) {
+        } else if (moveCount === 9 || theGameStructure.playerTwo === "AI" && moveCount === 5) {
           gameOutComeMessage.innerHTML = "It's a Draw!";
           gameOutComeOverlay.style.visibility = "visible";
           gameArray = ["", "", "", "", "", "", "", "", ""];
