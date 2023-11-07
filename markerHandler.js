@@ -32,7 +32,7 @@ const markerHandler = (function () {
       if (gridItem[index].innerHTML === "") {
         gridItem[index].innerHTML = chosenMarker[whichMarker];
         whichMarker += 1;
-        if (theGameStructure.playerTwo === "AI") {
+        if (theGameStructure.playerTwo === "AI" && theGameStructure.difficulty === "random") {
           let emptyCellIndex = [];
           gridItem.forEach((element, index) => {
             if (element.innerHTML === "") {

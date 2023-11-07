@@ -46,12 +46,7 @@
 
         <form id="ai-container">
           <label for="ai-input"> AI </label>
-          <input
-            type="radio"
-            id="ai-input"
-            name="choose-opponent"
-            value="AI"
-          />
+          <input type="radio" id="ai-input" name="choose-opponent" value="AI" />
           <label for="player-input"> Player </label>
           <input
             type="radio"
@@ -60,6 +55,14 @@
             value="Player"
           />
         </form>
+        <label for="difficulty">Choose difficulty:</label>
+
+        <select name="choose-difficulty" id="choose-difficulty">
+          <option value="random">Random</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
         <section id="player-2-container">
           <label id="player-2-message" for="player-2-name"
             >Player 2, please enter your name</label
