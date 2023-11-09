@@ -52,6 +52,21 @@ const markerHandler = (function () {
           emptyCellIndex.forEach((element, index) => {
             if (element === randomIndex) emptyCellIndex.splice(index, 1);
           });
+        } else if (
+          theGameStructure.playerTwo === "AI" &&
+          theGameStructure.difficulty === "easy"
+        ) {
+          console.log("easy mode");
+        } else if (
+          theGameStructure.playerTwo === "AI" &&
+          theGameStructure.difficulty === "medium"
+        ) {
+          console.log("medium mode");
+        } else if (
+          theGameStructure.playerTwo === "AI" &&
+          theGameStructure.difficulty === "hard"
+        ) {
+          console.log("hard mode");
         }
       }
     });
