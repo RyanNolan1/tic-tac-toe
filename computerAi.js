@@ -12,7 +12,7 @@ const computerAi = (function () {
             gridItem.forEach((element, index) => {
                 gameArray.splice(index, 1, element.innerHTML);   
             })
-            console.log(gameArray);
+            // console.log(gameArray);
         })
     });
 

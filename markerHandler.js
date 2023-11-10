@@ -13,6 +13,8 @@ const oScore = document.getElementById("o-score");
 const markerHandler = (function () {
   let chosenMarker;
   let whichMarker = 0;
+  let humanMarker;
+  let computerMarker;
 
   continueButton.addEventListener("click", () => {
     xScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
@@ -21,11 +23,32 @@ const markerHandler = (function () {
     chooseMarker.forEach((element) => {
       if (element.checked && element.value === "X") {
         chosenMarker = ["X", "O", "X", "O", "X", "O", "X", "O", "X"];
+        humanMarker = "X";
+        computerMarker = "O"
       } else if (element.checked && element.value === "O") {
         chosenMarker = ["O", "X", "O", "X", "O", "X", "O", "X", "O"];
+        humanMarker = "O";
+        computerMarker = "X"
       }
     });
   });
+
+  function winning(board, player){
+    if (
+    (board[0] == player && board[1] == player && board[2] == player) ||
+    (board[3] == player && board[4] == player && board[5] == player) ||
+    (board[6] == player && board[7] == player && board[8] == player) ||
+    (board[0] == player && board[3] == player && board[6] == player) ||
+    (board[1] == player && board[4] == player && board[7] == player) ||
+    (board[2] == player && board[5] == player && board[8] == player) ||
+    (board[0] == player && board[4] == player && board[8] == player) ||
+    (board[2] == player && board[4] == player && board[6] == player)
+    ) {
+    return true;
+    } else {
+    return false;
+    }
+   }
 
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
@@ -66,7 +89,16 @@ const markerHandler = (function () {
           theGameStructure.playerTwo === "AI" &&
           theGameStructure.difficulty === "hard"
         ) {
-          console.log("hard mode");
+          let emptyCellIndex = [];
+          gridItem.forEach((element, index) => {
+            if (element.innerHTML === "") {
+              emptyCellIndex.push(index);
+            } else {
+              emptyCellIndex.push(element.innerHTML)
+            }
+          });
+          console.log(winning(emptyCellIndex, humanMarker));
+          console.log(emptyCellIndex);
         }
       }
     });
