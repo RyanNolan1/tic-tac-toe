@@ -15,7 +15,6 @@ const markerHandler = (function () {
   let whichMarker = 0;
   let humanMarker;
   let computerMarker;
-  let moves = [];
 
   continueButton.addEventListener("click", () => {
     xScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
@@ -49,6 +48,58 @@ const markerHandler = (function () {
     } else {
       return false;
     }
+  }
+
+  function emptyIndexies(board) {
+    return board.filter((s) => s != "O" && s != "X");
+  }
+
+  function minimax(newBoard, player) {
+    let availSpots = emptyIndexies(newBoard);
+    if (winning(newBoard, humanMarker)) {
+      return { score: -10 };
+    } else if (winning(newBoard, computerMarker)) {
+      return { score: 10 };
+    } else if (availSpots.length === 0) {
+      return { score: 0 };
+    }
+
+    let moves = [];
+
+    for (let i = 0; i < availSpots.length; i++) {
+      let move = {};
+      move.index = newBoard[availSpots[i]];
+
+      newBoard[availSpots[i]] = player;
+      if (player === computerMarker) {
+        let result = minimax(newBoard, humanMarker);
+        move.score = result.score;
+      } else {
+        let result = minimax(newBoard, computerMarker);
+        move.score = result.score;
+      }
+      newBoard[availSpots[i]] = move.index;
+      moves.push(move);
+    }
+    let bestMove;
+    if (player === computerMarker) {
+      let bestScore = -10000;
+      for (let i = 0; i < moves.length; i++) {
+        if (moves[i].score > bestScore) {
+          bestScore = moves[i].score;
+          bestMove = i;
+        }
+      }
+    } else {
+      let bestScore = 10000;
+      for (let i = 0; i < moves.length; i++) {
+        if (moves[i].score < bestScore) {
+          bestScore = moves[i].score;
+          bestMove = i;
+        }
+      }
+    }
+    return moves[bestMove];
   }
 
   gridItem.forEach((element, index) => {
@@ -98,59 +149,10 @@ const markerHandler = (function () {
               emptyCellIndex.push(element.innerHTML);
             }
           });
-
-          function emptyIndexies(board) {
-            return board.filter((s) => s != "O" && s != "X");
-          }
-
-          function minimax(newBoard, player) {
-            let availSpots = emptyIndexies(newBoard);
-            if (winning(newBoard, humanMarker)) {
-              return { score: -10 };
-            } else if (winning(newBoard, computerMarker)) {
-              return { score: 10 };
-            } else if (availSpots.length === 0) {
-              return { score: 0 };
-            }
-
-            for (let i = 0; i < availSpots.length; i++) {
-              let move = {};
-              move.index = newBoard[availSpots[i]];
-
-              newBoard[availSpots[i]] = player;
-              if (player === computerMarker) {
-                let result = minimax(newBoard, humanMarker);
-                move.score = result.score;
-              } else {
-                let result = minimax(newBoard, computerMarker);
-                move.score = result.score;
-              }
-              newBoard[availSpots[i]] = move.index;
-              moves.push(move);
-              console.log(move);
-            }
-            let bestMove;
-            if (player === computerMarker) {
-              let bestScore = -10000;
-              for (let i = 0; i < moves.length; i++) {
-                if (moves[i].score > bestScore) {
-                  bestScore = moves[i].score;
-                  bestMove = i;
-                }
-              }
-            } else {
-              let bestScore = 10000;
-              for (let i = 0; i < moves.length; i++) {
-                if (moves[i].score < bestScore) {
-                  bestScore = moves[i].score;
-                  bestMove = i;
-                }
-              }
-            }
-            console.log(moves[bestMove]);
-            return moves[bestMove];
-          }
-          minimax(emptyCellIndex, computerMarker);
+          let computersMove = minimax(emptyCellIndex, computerMarker).index;
+          gridItem[computersMove].innerHTML = chosenMarker[whichMarker];
+          emptyCellIndex.splice(computersMove, 1, chosenMarker[whichMarker]);
+          whichMarker += 1;
         }
       }
     });
