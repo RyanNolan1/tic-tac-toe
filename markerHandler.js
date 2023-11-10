@@ -15,6 +15,7 @@ const markerHandler = (function () {
   let whichMarker = 0;
   let humanMarker;
   let computerMarker;
+  let moves = [];
 
   continueButton.addEventListener("click", () => {
     xScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
@@ -24,31 +25,31 @@ const markerHandler = (function () {
       if (element.checked && element.value === "X") {
         chosenMarker = ["X", "O", "X", "O", "X", "O", "X", "O", "X"];
         humanMarker = "X";
-        computerMarker = "O"
+        computerMarker = "O";
       } else if (element.checked && element.value === "O") {
         chosenMarker = ["O", "X", "O", "X", "O", "X", "O", "X", "O"];
         humanMarker = "O";
-        computerMarker = "X"
+        computerMarker = "X";
       }
     });
   });
 
-  function winning(board, player){
+  function winning(board, player) {
     if (
-    (board[0] == player && board[1] == player && board[2] == player) ||
-    (board[3] == player && board[4] == player && board[5] == player) ||
-    (board[6] == player && board[7] == player && board[8] == player) ||
-    (board[0] == player && board[3] == player && board[6] == player) ||
-    (board[1] == player && board[4] == player && board[7] == player) ||
-    (board[2] == player && board[5] == player && board[8] == player) ||
-    (board[0] == player && board[4] == player && board[8] == player) ||
-    (board[2] == player && board[4] == player && board[6] == player)
+      (board[0] == player && board[1] == player && board[2] == player) ||
+      (board[3] == player && board[4] == player && board[5] == player) ||
+      (board[6] == player && board[7] == player && board[8] == player) ||
+      (board[0] == player && board[3] == player && board[6] == player) ||
+      (board[1] == player && board[4] == player && board[7] == player) ||
+      (board[2] == player && board[5] == player && board[8] == player) ||
+      (board[0] == player && board[4] == player && board[8] == player) ||
+      (board[2] == player && board[4] == player && board[6] == player)
     ) {
-    return true;
+      return true;
     } else {
-    return false;
+      return false;
     }
-   }
+  }
 
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
@@ -94,11 +95,62 @@ const markerHandler = (function () {
             if (element.innerHTML === "") {
               emptyCellIndex.push(index);
             } else {
-              emptyCellIndex.push(element.innerHTML)
+              emptyCellIndex.push(element.innerHTML);
             }
           });
-          console.log(winning(emptyCellIndex, humanMarker));
-          console.log(emptyCellIndex);
+
+          function emptyIndexies(board) {
+            return board.filter((s) => s != "O" && s != "X");
+          }
+
+          function minimax(newBoard, player) {
+            let availSpots = emptyIndexies(newBoard);
+            if (winning(newBoard, humanMarker)) {
+              return { score: -10 };
+            } else if (winning(newBoard, computerMarker)) {
+              return { score: 10 };
+            } else if (availSpots.length === 0) {
+              return { score: 0 };
+            }
+
+            for (let i = 0; i < availSpots.length; i++) {
+              let move = {};
+              move.index = newBoard[availSpots[i]];
+
+              newBoard[availSpots[i]] = player;
+              if (player === computerMarker) {
+                let result = minimax(newBoard, humanMarker);
+                move.score = result.score;
+              } else {
+                let result = minimax(newBoard, computerMarker);
+                move.score = result.score;
+              }
+              newBoard[availSpots[i]] = move.index;
+              moves.push(move);
+              console.log(move);
+            }
+            let bestMove;
+            if (player === computerMarker) {
+              let bestScore = -10000;
+              for (let i = 0; i < moves.length; i++) {
+                if (moves[i].score > bestScore) {
+                  bestScore = moves[i].score;
+                  bestMove = i;
+                }
+              }
+            } else {
+              let bestScore = 10000;
+              for (let i = 0; i < moves.length; i++) {
+                if (moves[i].score < bestScore) {
+                  bestScore = moves[i].score;
+                  bestMove = i;
+                }
+              }
+            }
+            console.log(moves[bestMove]);
+            return moves[bestMove];
+          }
+          minimax(emptyCellIndex, computerMarker);
         }
       }
     });
