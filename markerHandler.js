@@ -136,6 +136,8 @@ const markerHandler = (function () {
     });
   }
 
+  let randomNumber = Math.random() * 100;
+
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
       if (gridItem[index].innerHTML === "") {
@@ -150,20 +152,23 @@ const markerHandler = (function () {
           theGameStructure.playerTwo === "AI" &&
           theGameStructure.difficulty === "easy"
         ) {
-          let randomNumber = Math.random() * 100;
-          if (randomNumber < 20)
-          playAiRound();
-          else if (randomNumber < 100)
-          console.log("easy mode");
-          playRandomAiRound();
+          if (randomNumber < 25) playAiRound();
+          else if (randomNumber < 100) playRandomAiRound();
         } else if (
           theGameStructure.playerTwo === "AI" &&
           theGameStructure.difficulty === "medium"
         ) {
-          console.log("medium mode");
+          if (randomNumber < 50) playAiRound();
+          else if (randomNumber < 100) playRandomAiRound();
         } else if (
           theGameStructure.playerTwo === "AI" &&
           theGameStructure.difficulty === "hard"
+        ) {
+          if (randomNumber < 75) playAiRound();
+          else if (randomNumber < 100) playRandomAiRound();
+        } else if (
+          theGameStructure.playerTwo === "AI" &&
+          theGameStructure.difficulty === "impossible"
         ) {
           playAiRound();
         }
