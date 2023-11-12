@@ -102,6 +102,40 @@ const markerHandler = (function () {
     return moves[bestMove];
   }
 
+  function playAiRound() {
+    let emptyCellIndex = [];
+    gridItem.forEach((element, index) => {
+      if (element.innerHTML === "") {
+        emptyCellIndex.push(index);
+      } else {
+        emptyCellIndex.push(element.innerHTML);
+      }
+    });
+    let computersMove = minimax(emptyCellIndex, computerMarker).index;
+    gridItem[computersMove].innerHTML = chosenMarker[whichMarker];
+    emptyCellIndex.splice(computersMove, 1, chosenMarker[whichMarker]);
+    whichMarker += 1;
+  }
+
+  function playRandomAiRound() {
+    let emptyCellIndex = [];
+    gridItem.forEach((element, index) => {
+      if (element.innerHTML === "") {
+        emptyCellIndex.push(index);
+      }
+    });
+    let randomIndex =
+      emptyCellIndex[Math.floor(Math.random() * emptyCellIndex.length)];
+    if (emptyCellIndex.length > 1) {
+      gridItem[randomIndex].innerHTML = chosenMarker[whichMarker];
+      whichMarker += 1;
+    }
+
+    emptyCellIndex.forEach((element, index) => {
+      if (element === randomIndex) emptyCellIndex.splice(index, 1);
+    });
+  }
+
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
       if (gridItem[index].innerHTML === "") {
@@ -111,27 +145,17 @@ const markerHandler = (function () {
           theGameStructure.playerTwo === "AI" &&
           theGameStructure.difficulty === "random"
         ) {
-          let emptyCellIndex = [];
-          gridItem.forEach((element, index) => {
-            if (element.innerHTML === "") {
-              emptyCellIndex.push(index);
-            }
-          });
-          let randomIndex =
-            emptyCellIndex[Math.floor(Math.random() * emptyCellIndex.length)];
-          if (emptyCellIndex.length > 1) {
-            gridItem[randomIndex].innerHTML = chosenMarker[whichMarker];
-            whichMarker += 1;
-          }
-
-          emptyCellIndex.forEach((element, index) => {
-            if (element === randomIndex) emptyCellIndex.splice(index, 1);
-          });
+          playRandomAiRound();
         } else if (
           theGameStructure.playerTwo === "AI" &&
           theGameStructure.difficulty === "easy"
         ) {
+          let randomNumber = Math.random() * 100;
+          if (randomNumber < 20)
+          playAiRound();
+          else if (randomNumber < 100)
           console.log("easy mode");
+          playRandomAiRound();
         } else if (
           theGameStructure.playerTwo === "AI" &&
           theGameStructure.difficulty === "medium"
@@ -141,18 +165,7 @@ const markerHandler = (function () {
           theGameStructure.playerTwo === "AI" &&
           theGameStructure.difficulty === "hard"
         ) {
-          let emptyCellIndex = [];
-          gridItem.forEach((element, index) => {
-            if (element.innerHTML === "") {
-              emptyCellIndex.push(index);
-            } else {
-              emptyCellIndex.push(element.innerHTML);
-            }
-          });
-          let computersMove = minimax(emptyCellIndex, computerMarker).index;
-          gridItem[computersMove].innerHTML = chosenMarker[whichMarker];
-          emptyCellIndex.splice(computersMove, 1, chosenMarker[whichMarker]);
-          whichMarker += 1;
+          playAiRound();
         }
       }
     });
