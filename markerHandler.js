@@ -15,6 +15,7 @@ const markerHandler = (function () {
   let whichMarker = 0;
   let humanMarker;
   let computerMarker;
+  let randomNumber = 0;
 
   continueButton.addEventListener("click", () => {
     xScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
@@ -115,6 +116,7 @@ const markerHandler = (function () {
     gridItem[computersMove].innerHTML = chosenMarker[whichMarker];
     emptyCellIndex.splice(computersMove, 1, chosenMarker[whichMarker]);
     whichMarker += 1;
+    console.log(randomNumber)
   }
 
   function playRandomAiRound() {
@@ -135,36 +137,37 @@ const markerHandler = (function () {
       if (element === randomIndex) emptyCellIndex.splice(index, 1);
     });
   }
-
-  let randomNumber = Math.random() * 100;
-
+  
+  
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
+      randomNumber = Math.random() * 100;
       if (gridItem[index].innerHTML === "") {
         gridItem[index].innerHTML = chosenMarker[whichMarker];
         whichMarker += 1;
         if (
           theGameStructure.playerTwo === "AI" &&
           theGameStructure.difficulty === "random"
-        ) {
-          playRandomAiRound();
-        } else if (
-          theGameStructure.playerTwo === "AI" &&
-          theGameStructure.difficulty === "easy"
-        ) {
-          if (randomNumber < 25) playAiRound();
+          ) {
+            playRandomAiRound();
+          } else if (
+            theGameStructure.playerTwo === "AI" &&
+            theGameStructure.difficulty === "easy"
+            ) {
+          let randomNumber = Math.random() * 100;
+          if (randomNumber < 65) playAiRound();
           else if (randomNumber < 100) playRandomAiRound();
         } else if (
           theGameStructure.playerTwo === "AI" &&
           theGameStructure.difficulty === "medium"
         ) {
-          if (randomNumber < 50) playAiRound();
+          if (randomNumber < 80) playAiRound();
           else if (randomNumber < 100) playRandomAiRound();
         } else if (
           theGameStructure.playerTwo === "AI" &&
           theGameStructure.difficulty === "hard"
         ) {
-          if (randomNumber < 75) playAiRound();
+          if (randomNumber < 90) playAiRound();
           else if (randomNumber < 100) playRandomAiRound();
         } else if (
           theGameStructure.playerTwo === "AI" &&
