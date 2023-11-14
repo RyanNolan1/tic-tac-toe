@@ -39,11 +39,11 @@ const theGameStructure = (function () {
     element.addEventListener("change", function () {
       if (element.checked && element.value === "AI") {
         gameBoard.difficulty = chooseDifficulty.value;
-        difficultyContainer.style.display = "block";
+        difficultyContainer.style.display = "flex";
         playerTwoContainer.style.display = "none";
       } else if (element.checked && element.value === "Player") {
         difficultyContainer.style.display = "none";
-        playerTwoContainer.style.display = "block";
+        playerTwoContainer.style.display = "flex";
       }
     });
   });
