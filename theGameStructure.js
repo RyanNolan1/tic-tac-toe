@@ -27,7 +27,6 @@ const theGameStructure = (function () {
         gameBoard.playerOne = playerFactory(playerOneName.value);
         gameBoard.playerTwo = playerFactory("AI");
         gameBoard.difficulty = chooseDifficulty.value;
-        console.log("test");
       } else if (element.checked && element.value === "Player") {
         gameBoard.playerOne = playerFactory(playerOneName.value);
         gameBoard.playerTwo = playerFactory(playerTwoName.value);
