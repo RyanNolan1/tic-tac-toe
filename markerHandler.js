@@ -113,10 +113,11 @@ const markerHandler = (function () {
       }
     });
     let computersMove = minimax(emptyCellIndex, computerMarker).index;
+    if (gridItem[computersMove] !== undefined) {
     gridItem[computersMove].innerHTML = chosenMarker[whichMarker];
     emptyCellIndex.splice(computersMove, 1, chosenMarker[whichMarker]);
+    }
     whichMarker += 1;
-    console.log(randomNumber)
   }
 
   function playRandomAiRound() {
@@ -155,7 +156,6 @@ const markerHandler = (function () {
             theGameStructure.difficulty === "easy"
             ) {
           let randomNumber = Math.random() * 100;
-          console.log(randomNumber);
           if (randomNumber < 40) playAiRound();
           else if (randomNumber < 100) playRandomAiRound();
         } else if (
