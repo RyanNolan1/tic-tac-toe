@@ -155,13 +155,14 @@ const markerHandler = (function () {
             theGameStructure.difficulty === "easy"
             ) {
           let randomNumber = Math.random() * 100;
-          if (randomNumber < 65) playAiRound();
+          console.log(randomNumber);
+          if (randomNumber < 40) playAiRound();
           else if (randomNumber < 100) playRandomAiRound();
         } else if (
           theGameStructure.playerTwo === "AI" &&
           theGameStructure.difficulty === "medium"
         ) {
-          if (randomNumber < 80) playAiRound();
+          if (randomNumber < 60) playAiRound();
           else if (randomNumber < 100) playRandomAiRound();
         } else if (
           theGameStructure.playerTwo === "AI" &&
