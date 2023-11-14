@@ -23,7 +23,9 @@ const whoWins = (function () {
     element.addEventListener("click", function () {
       moveCount++;
       if (gameArray[index] === "") {
-        gameArray.splice(index, 1, element.innerHTML);
+        gridItem.forEach((element, index) => {
+          gameArray.splice(index, 1, element.innerHTML);
+        })
         const topRow = [gameArray[0], gameArray[1], gameArray[2]];
         const middleRow = [gameArray[3], gameArray[4], gameArray[5]];
         const bottomRow = [gameArray[6], gameArray[7], gameArray[8]];
@@ -76,7 +78,7 @@ const whoWins = (function () {
         } else if (diagonalUp.every(isItX) || diagonalUp.every(isItO)) {
           [6, 4, 2].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
           announceWinner(diagonalUp[0]);
-        } else if (moveCount === 9) {
+        } else if (moveCount === 9 || theGameStructure.playerTwo === "AI" && moveCount === 5) {
           gameOutComeMessage.innerHTML = "It's a Draw!";
           gameOutComeOverlay.style.visibility = "visible";
           gameArray = ["", "", "", "", "", "", "", "", ""];

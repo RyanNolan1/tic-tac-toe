@@ -86,7 +86,16 @@ body {
 }
 
 #player-2-container {
-  display:none;
+  display:flex;
+  flex-direction: column;
+  display: none;
+  gap:20px;
+}
+
+#difficulty-container {
+  display:flex;
+  flex-direction:column;
+  gap:20px;
 }
 
 #continue-button {

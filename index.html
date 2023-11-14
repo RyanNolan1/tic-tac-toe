@@ -24,14 +24,14 @@
         >
         <input type="text" id="player-1-name" name="player-1-name" />
         <form id="radio-container">
-          <label for="x-radio-input"> X </label><br />
+          <label for="x-radio-input"> X </label>
           <input
             type="radio"
             id="x-radio-input"
             name="choose-marker"
             value="X"
           />
-          <label for="o-radio-input"> O </label><br />
+          <label for="o-radio-input"> O </label>
           <input
             type="radio"
             id="o-radio-input"
@@ -45,21 +45,27 @@
         >
 
         <form id="ai-container">
-          <label for="x-radio-input"> AI </label><br />
+          <label for="ai-input"> AI </label>
+          <input type="radio" id="ai-input" name="choose-opponent" value="AI" class="opponent-radios"/>
+          <label for="player-input"> Player </label>
           <input
             type="radio"
-            id="x-radio-input"
-            name="choose-marker"
-            value="X"
-          />
-          <label for="o-radio-input"> Player </label><br />
-          <input
-            type="radio"
-            id="o-radio-input"
-            name="choose-marker"
-            value="O"
+            id="player-input"
+            name="choose-opponent"
+            value="Player"
+            class="opponent-radios"
           />
         </form>
+        <form id="difficulty-container">
+        <label for="difficulty">Choose difficulty:</label>
+        <select name="choose-difficulty" id="choose-difficulty">
+          <option value="random">Random</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+          <option value="hard">Impossible</option>
+        </select>
+      </form>
         <section id="player-2-container">
           <label id="player-2-message" for="player-2-name"
             >Player 2, please enter your name</label
