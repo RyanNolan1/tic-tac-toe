@@ -4,6 +4,9 @@ const theGameStructure = (function () {
   const playerTwoName = document.getElementById("player-2-name");
   const chooseOpponent = document.getElementsByName("choose-opponent");
   const chooseDifficulty = document.getElementById("choose-difficulty");
+  const difficultyContainer = document.getElementById("difficulty-container");
+  const playerTwoContainer = document.getElementById("player-2-container");
+  const opponentRadios = document.querySelectorAll(".opponent-radios");
 
   const playerFactory = (name) => {
     return name;
@@ -24,12 +27,26 @@ const theGameStructure = (function () {
         gameBoard.playerOne = playerFactory(playerOneName.value);
         gameBoard.playerTwo = playerFactory("AI");
         gameBoard.difficulty = chooseDifficulty.value;
+        console.log("test");
       } else if (element.checked && element.value === "Player") {
         gameBoard.playerOne = playerFactory(playerOneName.value);
         gameBoard.playerTwo = playerFactory(playerTwoName.value);
       }
     });
   }
+
+  opponentRadios.forEach(function (element) {
+    element.addEventListener("change", function () {
+      if (element.checked && element.value === "AI") {
+        gameBoard.difficulty = chooseDifficulty.value;
+        difficultyContainer.style.display = "block";
+        playerTwoContainer.style.display = "none";
+      } else if (element.checked && element.value === "Player") {
+        difficultyContainer.style.display = "none";
+        playerTwoContainer.style.display = "block";
+      }
+    });
+  });
 
   continueButton.addEventListener("click", createPlayer);
 

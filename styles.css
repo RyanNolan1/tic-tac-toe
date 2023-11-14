@@ -88,7 +88,7 @@ body {
 #player-2-container {
   display:flex;
   flex-direction: column;
-  display:none;
+  display: none;
 }
 
 #continue-button {
