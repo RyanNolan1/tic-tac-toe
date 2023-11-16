@@ -5,18 +5,18 @@ const gridItem = gameContainer.querySelectorAll(".grid-item");
 const gameOutComeOverlay = document.getElementById("game-outcome-overlay");
 const gameOutComeMessage = document.getElementById("game-outcome-message");
 const newGameButton = document.getElementById("new-game-button");
-const xScore = document.getElementById("x-score");
-const oScore = document.getElementById("o-score");
+const playerOneScore = document.getElementById("player-one-score");
+const playerTwoScore = document.getElementById("player-two-score");
 
 const whoWins = (function () {
   let gameArray = ["", "", "", "", "", "", "", "", ""];
   let moveCount = 0;
-  let xWinsCount = 0;
-  let oWinsCount = 0;
+  let playerOneWinsCount = 0;
+  let playerTwoWinsCount = 0;
 
   newGameButton.addEventListener("click", function () {
-    xWinsCount = 0;
-    oWinsCount = 0;
+    playerOneWinsCount= 0;
+    playerTwoWinsCount = 0;
   });
 
   gridItem.forEach((element, index) => {
@@ -25,7 +25,7 @@ const whoWins = (function () {
         moveCount++;
         gridItem.forEach((element, index) => {
           gameArray.splice(index, 1, element.innerHTML);
-        })
+        });
         const topRow = [gameArray[0], gameArray[1], gameArray[2]];
         const middleRow = [gameArray[3], gameArray[4], gameArray[5]];
         const bottomRow = [gameArray[6], gameArray[7], gameArray[8]];
@@ -43,14 +43,14 @@ const whoWins = (function () {
           gameOutComeOverlay.style.visibility = "visible";
           gameArray = ["", "", "", "", "", "", "", "", ""];
           moveCount = 0;
-          if (winningMarker === theGameStructure.humanMarker) {
-            xWinsCount += 1;
-            xScore.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.humanMarker}) Score: ${xWinsCount}`;
-            gameOutComeMessage.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.humanMarker}) Wins!`;
-          } else if (winningMarker === theGameStructure.computerMarker) {
-            oWinsCount += 1;
-            oScore.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.computerMarker}) Score: ${oWinsCount}`;
-            gameOutComeMessage.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.computerMarker}) Wins!`;
+          if (winningMarker === theGameStructure.playerOneMarker) {
+            playerOneWinsCount += 1;
+            playerOneScore.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.playerOneMarker}) Score: ${playerOneWinsCount}`;
+            gameOutComeMessage.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.playerOneMarker}) Wins!`;
+          } else if (winningMarker === theGameStructure.playerTwoMarker) {
+            playerTwoWinsCount += 1;
+            playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.playerTwoMarker}) Score: ${playerTwoWinsCount}`;
+            gameOutComeMessage.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.playerTwoMarker}) Wins!`;
           }
         }
 
@@ -78,7 +78,10 @@ const whoWins = (function () {
         } else if (diagonalUp.every(isItX) || diagonalUp.every(isItO)) {
           [6, 4, 2].forEach((i) => (gridItem[i].style.backgroundColor = "red"));
           announceWinner(diagonalUp[0]);
-        } else if (moveCount === 9 || theGameStructure.playerTwo === "AI" && moveCount === 5) {
+        } else if (
+          moveCount === 9 ||
+          (theGameStructure.playerTwo === "AI" && moveCount === 5)
+        ) {
           gameOutComeMessage.innerHTML = "It's a Draw!";
           gameOutComeOverlay.style.visibility = "visible";
           gameArray = ["", "", "", "", "", "", "", "", ""];

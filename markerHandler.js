@@ -7,34 +7,34 @@ const gameOutComeOverlay = document.getElementById("game-outcome-overlay");
 const nextRoundButton = document.getElementById("next-round-button");
 const newGameButton = document.getElementById("new-game-button");
 const gridItem = document.querySelectorAll(".grid-item");
-const xScore = document.getElementById("x-score");
-const oScore = document.getElementById("o-score");
+const playerOneScore = document.getElementById("player-one-score");
+const playerTwoScore = document.getElementById("player-two-score");
 
 const markerHandler = (function () {
   let chosenMarker;
   let whichMarker = 0;
-  let humanMarker;
-  let computerMarker;
+  let playerOneMarker;
+  let playerTwoMarker;
   let randomNumber = 0;
 
   continueButton.addEventListener("click", () => {
-    xScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
-    oScore.innerHTML = `${theGameStructure.playerTwo} (O) Score: 0`;
+    playerOneScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
+    playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (O) Score: 0`;
     gameStartOverlay.style.visibility = "hidden";
     chooseMarker.forEach((element) => {
       if (element.checked && element.value === "X") {
         chosenMarker = ["X", "O", "X", "O", "X", "O", "X", "O", "X"];
-        humanMarker = "X";
-        computerMarker = "O";
+        playerOneMarker = "X";
+        playerTwoMarker = "O";
       } else if (element.checked && element.value === "O") {
         chosenMarker = ["O", "X", "O", "X", "O", "X", "O", "X", "O"];
-        humanMarker = "O";
-        computerMarker = "X";
+        playerOneMarker = "O";
+        playerTwoMarker = "X";
       }
 
       if (theGameStructure.playerTwo === "AI") {
-      xScore.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.humanMarker}) Score: 0`;
-      oScore.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.computerMarker}) Score: 0`;
+        playerOneScore.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.playerOneMarker}) Score: 0`;
+        playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.playerTwoMarker}) Score: 0`;
       }
     });
   });
@@ -62,9 +62,9 @@ const markerHandler = (function () {
 
   function minimax(newBoard, player) {
     let availSpots = emptyIndexies(newBoard);
-    if (winning(newBoard, humanMarker)) {
+    if (winning(newBoard, playerOneMarker)) {
       return { score: -10 };
-    } else if (winning(newBoard, computerMarker)) {
+    } else if (winning(newBoard, playerTwoMarker)) {
       return { score: 10 };
     } else if (availSpots.length === 0) {
       return { score: 0 };
@@ -77,18 +77,18 @@ const markerHandler = (function () {
       move.index = newBoard[availSpots[i]];
 
       newBoard[availSpots[i]] = player;
-      if (player === computerMarker) {
-        let result = minimax(newBoard, humanMarker);
+      if (player === playerTwoMarker) {
+        let result = minimax(newBoard, playerOneMarker);
         move.score = result.score;
       } else {
-        let result = minimax(newBoard, computerMarker);
+        let result = minimax(newBoard, playerTwoMarker);
         move.score = result.score;
       }
       newBoard[availSpots[i]] = move.index;
       moves.push(move);
     }
     let bestMove;
-    if (player === computerMarker) {
+    if (player === playerTwoMarker) {
       let bestScore = -10000;
       for (let i = 0; i < moves.length; i++) {
         if (moves[i].score > bestScore) {
@@ -117,10 +117,10 @@ const markerHandler = (function () {
         emptyCellIndex.push(element.innerHTML);
       }
     });
-    let computersMove = minimax(emptyCellIndex, computerMarker).index;
+    let computersMove = minimax(emptyCellIndex, playerTwoMarker).index;
     if (gridItem[computersMove] !== undefined) {
-    gridItem[computersMove].innerHTML = chosenMarker[whichMarker];
-    emptyCellIndex.splice(computersMove, 1, chosenMarker[whichMarker]);
+      gridItem[computersMove].innerHTML = chosenMarker[whichMarker];
+      emptyCellIndex.splice(computersMove, 1, chosenMarker[whichMarker]);
     }
     whichMarker += 1;
   }
@@ -143,8 +143,7 @@ const markerHandler = (function () {
       if (element === randomIndex) emptyCellIndex.splice(index, 1);
     });
   }
-  
-  
+
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
       randomNumber = Math.random() * 100;
@@ -154,12 +153,12 @@ const markerHandler = (function () {
         if (
           theGameStructure.playerTwo === "AI" &&
           theGameStructure.difficulty === "random"
-          ) {
-            playRandomAiRound();
-          } else if (
-            theGameStructure.playerTwo === "AI" &&
-            theGameStructure.difficulty === "easy"
-            ) {
+        ) {
+          playRandomAiRound();
+        } else if (
+          theGameStructure.playerTwo === "AI" &&
+          theGameStructure.difficulty === "easy"
+        ) {
           let randomNumber = Math.random() * 100;
           if (randomNumber < 40) playAiRound();
           else if (randomNumber < 100) playRandomAiRound();
@@ -203,11 +202,11 @@ const markerHandler = (function () {
     });
 
     if (theGameStructure.playerTwo === "AI") {
-      xScore.innerHTML = `${theGameStructure.playerOne} (${humanMarker}) Score: 0`;
-      oScore.innerHTML = `${theGameStructure.playerTwo} (${computerMarker}) Score: 0`;
+      playerOneScore.innerHTML = `${theGameStructure.playerOne} (${playerOneMarker}) Score: 0`;
+      playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (${playerTwoMarker}) Score: 0`;
     } else {
-    xScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
-    oScore.innerHTML = `${theGameStructure.playerTwo} (O) Score: 0`;
+      playerOneScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
+      playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (O) Score: 0`;
     }
     gameStartOverlay.style.visibility = "visible";
   });

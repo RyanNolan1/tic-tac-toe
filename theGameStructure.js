@@ -17,8 +17,8 @@ const theGameStructure = (function () {
     playerOne: "",
     playerTwo: "",
     difficulty: "",
-    humanMarker: "",
-    computerMarker: "",
+    playerOneMarker: "",
+    playerTwoMarker: "",
     rows: 3,
     columns: 3,
     gameArray: ["", "", "", "", "", "", "", "", ""],
@@ -32,19 +32,18 @@ const theGameStructure = (function () {
             gameBoard.playerOne = playerFactory(playerOneName.value);
             gameBoard.playerTwo = playerFactory("AI");
             gameBoard.difficulty = chooseDifficulty.value;
-            gameBoard.humanMarker = "X";
-            gameBoard.computerMarker = "O";
+            gameBoard.playerOneMarker = "X";
+            gameBoard.playerTwoMarker = "O";
             gameBoard.difficulty = chooseDifficulty.value;
           } else if (element.checked && element.value === "O") {
             gameBoard.playerOne = playerFactory(playerOneName.value);
             gameBoard.playerTwo = playerFactory("AI");
             gameBoard.difficulty = chooseDifficulty.value;
-            gameBoard.humanMarker = "O";
-            gameBoard.computerMarker = "X";
+            gameBoard.playerOneMarker = "O";
+            gameBoard.playerTwoMarker = "X";
             gameBoard.difficulty = chooseDifficulty.value;
           }
         });
-        console.log(gameBoard);
       } else if (element.checked && element.value === "Player") {
         gameBoard.playerOne = playerFactory(playerOneName.value);
         gameBoard.playerTwo = playerFactory(playerTwoName.value);
