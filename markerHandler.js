@@ -32,10 +32,9 @@ const markerHandler = (function () {
         playerTwoMarker = "X";
       }
 
-      if (theGameStructure.playerTwo === "AI") {
         playerOneScore.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.playerOneMarker}) Score: 0`;
         playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.playerTwoMarker}) Score: 0`;
-      }
+
     });
   });
 
@@ -201,13 +200,9 @@ const markerHandler = (function () {
       element.style.backgroundColor = "white";
     });
 
-    if (theGameStructure.playerTwo === "AI") {
       playerOneScore.innerHTML = `${theGameStructure.playerOne} (${playerOneMarker}) Score: 0`;
       playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (${playerTwoMarker}) Score: 0`;
-    } else {
-      playerOneScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
-      playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (O) Score: 0`;
-    }
+
     gameStartOverlay.style.visibility = "visible";
   });
 })();
