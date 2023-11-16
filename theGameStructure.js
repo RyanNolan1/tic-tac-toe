@@ -58,7 +58,6 @@ const theGameStructure = (function () {
         });
       }
     });
-    console.log(gameBoard);
   }
 
   opponentRadios.forEach(function (element) {
