@@ -31,6 +31,11 @@ const markerHandler = (function () {
         humanMarker = "O";
         computerMarker = "X";
       }
+
+      if (theGameStructure.playerTwo === "AI") {
+      xScore.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.humanMarker}) Score: 0`;
+      oScore.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.computerMarker}) Score: 0`;
+      }
     });
   });
 
@@ -196,8 +201,14 @@ const markerHandler = (function () {
       element.innerHTML = "";
       element.style.backgroundColor = "white";
     });
+
+    if (theGameStructure.playerTwo === "AI") {
+      xScore.innerHTML = `${theGameStructure.playerOne} (${humanMarker}) Score: 0`;
+      oScore.innerHTML = `${theGameStructure.playerTwo} (${computerMarker}) Score: 0`;
+    } else {
     xScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
     oScore.innerHTML = `${theGameStructure.playerTwo} (O) Score: 0`;
+    }
     gameStartOverlay.style.visibility = "visible";
   });
 })();

@@ -43,14 +43,14 @@ const whoWins = (function () {
           gameOutComeOverlay.style.visibility = "visible";
           gameArray = ["", "", "", "", "", "", "", "", ""];
           moveCount = 0;
-          if (winningMarker === "X") {
+          if (winningMarker === theGameStructure.humanMarker) {
             xWinsCount += 1;
-            xScore.innerHTML = `${theGameStructure.playerOne} (X) Score: ${xWinsCount}`;
-            gameOutComeMessage.innerHTML = `${theGameStructure.playerOne} (X) Wins!`;
-          } else if (winningMarker === "O") {
+            xScore.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.humanMarker}) Score: ${xWinsCount}`;
+            gameOutComeMessage.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.humanMarker}) Wins!`;
+          } else if (winningMarker === theGameStructure.computerMarker) {
             oWinsCount += 1;
-            oScore.innerHTML = `${theGameStructure.playerTwo} (O) Score: ${oWinsCount}`;
-            gameOutComeMessage.innerHTML = `${theGameStructure.playerTwo} (O) Wins!`;
+            oScore.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.computerMarker}) Score: ${oWinsCount}`;
+            gameOutComeMessage.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.computerMarker}) Wins!`;
           }
         }
 
