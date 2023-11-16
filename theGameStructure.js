@@ -4,6 +4,7 @@ const theGameStructure = (function () {
   const playerTwoName = document.getElementById("player-2-name");
   const chooseOpponent = document.getElementsByName("choose-opponent");
   const chooseDifficulty = document.getElementById("choose-difficulty");
+  const chooseMarker = document.getElementsByName("choose-marker");
   const difficultyContainer = document.getElementById("difficulty-container");
   const playerTwoContainer = document.getElementById("player-2-container");
   const opponentRadios = document.querySelectorAll(".opponent-radios");
@@ -16,6 +17,8 @@ const theGameStructure = (function () {
     playerOne: "",
     playerTwo: "",
     difficulty: "",
+    playerOneMarker: "",
+    playerTwoMarker: "",
     rows: 3,
     columns: 3,
     gameArray: ["", "", "", "", "", "", "", "", ""],
@@ -24,12 +27,35 @@ const theGameStructure = (function () {
   function createPlayer() {
     chooseOpponent.forEach((element) => {
       if (element.checked && element.value === "AI") {
-        gameBoard.playerOne = playerFactory(playerOneName.value);
-        gameBoard.playerTwo = playerFactory("AI");
-        gameBoard.difficulty = chooseDifficulty.value;
+        chooseMarker.forEach((element) => {
+          if (element.checked && element.value === "X") {
+            gameBoard.playerOne = playerFactory(playerOneName.value);
+            gameBoard.playerTwo = playerFactory("AI");
+            gameBoard.difficulty = chooseDifficulty.value;
+            gameBoard.playerOneMarker = "X";
+            gameBoard.playerTwoMarker = "O";
+            gameBoard.difficulty = chooseDifficulty.value;
+          } else if (element.checked && element.value === "O") {
+            gameBoard.playerOne = playerFactory(playerOneName.value);
+            gameBoard.playerTwo = playerFactory("AI");
+            gameBoard.difficulty = chooseDifficulty.value;
+            gameBoard.playerOneMarker = "O";
+            gameBoard.playerTwoMarker = "X";
+            gameBoard.difficulty = chooseDifficulty.value;
+          }
+        });
       } else if (element.checked && element.value === "Player") {
-        gameBoard.playerOne = playerFactory(playerOneName.value);
-        gameBoard.playerTwo = playerFactory(playerTwoName.value);
+        chooseMarker.forEach((element) => {
+          if (element.checked && element.value === "X") {
+            gameBoard.playerOneMarker = "X";
+            gameBoard.playerTwoMarker = "O";
+          } else if (element.checked && element.value === "X") {
+            gameBoard.playerOneMarker = "O";
+            gameBoard.playerTwoMarker = "X";
+          }
+          gameBoard.playerOne = playerFactory(playerOneName.value);
+          gameBoard.playerTwo = playerFactory(playerTwoName.value);
+        });
       }
     });
   }
