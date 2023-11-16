@@ -27,21 +27,17 @@ const theGameStructure = (function () {
   function createPlayer() {
     chooseOpponent.forEach((element) => {
       if (element.checked && element.value === "AI") {
+        gameBoard.playerOne = playerFactory(playerOneName.value);
+        gameBoard.playerTwo = playerFactory("AI");
+        gameBoard.difficulty = chooseDifficulty.value;
         chooseMarker.forEach((element) => {
           if (element.checked && element.value === "X") {
-            gameBoard.playerOne = playerFactory(playerOneName.value);
-            gameBoard.playerTwo = playerFactory("AI");
-            gameBoard.difficulty = chooseDifficulty.value;
             gameBoard.playerOneMarker = "X";
             gameBoard.playerTwoMarker = "O";
-            gameBoard.difficulty = chooseDifficulty.value;
           } else if (element.checked && element.value === "O") {
-            gameBoard.playerOne = playerFactory(playerOneName.value);
-            gameBoard.playerTwo = playerFactory("AI");
             gameBoard.difficulty = chooseDifficulty.value;
             gameBoard.playerOneMarker = "O";
             gameBoard.playerTwoMarker = "X";
-            gameBoard.difficulty = chooseDifficulty.value;
           }
         });
       } else if (element.checked && element.value === "Player") {
@@ -49,7 +45,7 @@ const theGameStructure = (function () {
           if (element.checked && element.value === "X") {
             gameBoard.playerOneMarker = "X";
             gameBoard.playerTwoMarker = "O";
-          } else if (element.checked && element.value === "X") {
+          } else {
             gameBoard.playerOneMarker = "O";
             gameBoard.playerTwoMarker = "X";
           }
