@@ -32,9 +32,8 @@ const markerHandler = (function () {
         playerTwoMarker = "X";
       }
 
-        playerOneScore.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.playerOneMarker}) Score: 0`;
-        playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.playerTwoMarker}) Score: 0`;
-
+      playerOneScore.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.playerOneMarker}) Score: 0`;
+      playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.playerTwoMarker}) Score: 0`;
     });
   });
 
@@ -144,18 +143,16 @@ const markerHandler = (function () {
   }
 
   function characterHandler() {
-    gridItem.forEach((element => {
+    gridItem.forEach((element) => {
       if (element.innerHTML === "X") {
-      element.style.backgroundImage = "url('./santa.svg')";
-      element.style.backgroundSize = "100px 100px";
-      element.style.backgroundPosition = "center";
-    } else if (element.innerHTML === "O") {
-      element.style.backgroundImage = "url('./sprout.png')";
+        element.style.backgroundImage = "url('./santa.png')";
+      } else if (element.innerHTML === "O") {
+        element.style.backgroundImage = "url('./sprout.png')";
+      }
       element.style.backgroundSize = "80px 80px";
       element.style.backgroundRepeat = "no-repeat";
       element.style.backgroundPosition = "center";
-    }
-  }))
+    });
   }
 
   gridItem.forEach((element, index) => {
@@ -163,7 +160,6 @@ const markerHandler = (function () {
       randomNumber = Math.random() * 100;
       if (gridItem[index].innerHTML === "") {
         gridItem[index].innerHTML = chosenMarker[whichMarker];
-
 
         whichMarker += 1;
         if (
@@ -196,7 +192,7 @@ const markerHandler = (function () {
         ) {
           playAiRound();
         }
-        characterHandler()
+        characterHandler();
       }
     });
   });
@@ -220,12 +216,11 @@ const markerHandler = (function () {
       element.style.backgroundImage = "none";
     });
 
-      playerOneScore.innerHTML = `${theGameStructure.playerOne} (${playerOneMarker}) Score: 0`;
-      playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (${playerTwoMarker}) Score: 0`;
+    playerOneScore.innerHTML = `${theGameStructure.playerOne} (${playerOneMarker}) Score: 0`;
+    playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (${playerTwoMarker}) Score: 0`;
 
     gameStartOverlay.style.visibility = "visible";
   });
-
 })();
 
 export default markerHandler;
