@@ -46,8 +46,7 @@ body {
 
 .grid-item {
   font-family: "VampireWars", sans-serif;
-  font-size: 5rem;
-  color: black;
+  color:transparent;
   background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;

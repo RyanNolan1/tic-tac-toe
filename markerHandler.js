@@ -143,11 +143,28 @@ const markerHandler = (function () {
     });
   }
 
+  function characterHandler() {
+    gridItem.forEach((element => {
+      if (element.innerHTML === "X") {
+      element.style.backgroundImage = "url('./santa.svg')";
+      element.style.backgroundSize = "100px 100px";
+      element.style.backgroundPosition = "center";
+    } else if (element.innerHTML === "O") {
+      element.style.backgroundImage = "url('./sprout.png')";
+      element.style.backgroundSize = "80px 80px";
+      element.style.backgroundRepeat = "no-repeat";
+      element.style.backgroundPosition = "center";
+    }
+  }))
+  }
+
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
       randomNumber = Math.random() * 100;
       if (gridItem[index].innerHTML === "") {
         gridItem[index].innerHTML = chosenMarker[whichMarker];
+
+
         whichMarker += 1;
         if (
           theGameStructure.playerTwo === "AI" &&
@@ -179,6 +196,7 @@ const markerHandler = (function () {
         ) {
           playAiRound();
         }
+        characterHandler()
       }
     });
   });
@@ -189,6 +207,7 @@ const markerHandler = (function () {
     gridItem.forEach((element) => {
       element.innerHTML = "";
       element.style.backgroundColor = "white";
+      element.style.backgroundImage = "none";
     });
   });
 
@@ -198,6 +217,7 @@ const markerHandler = (function () {
     gridItem.forEach((element) => {
       element.innerHTML = "";
       element.style.backgroundColor = "white";
+      element.style.backgroundImage = "none";
     });
 
       playerOneScore.innerHTML = `${theGameStructure.playerOne} (${playerOneMarker}) Score: 0`;
@@ -205,6 +225,7 @@ const markerHandler = (function () {
 
     gameStartOverlay.style.visibility = "visible";
   });
+
 })();
 
 export default markerHandler;

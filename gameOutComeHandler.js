@@ -21,7 +21,7 @@ const whoWins = (function () {
 
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
-      if (gameArray[index] === "") {
+    if (gameArray[index] === "") {
         moveCount++;
         gridItem.forEach((element, index) => {
           gameArray.splice(index, 1, element.innerHTML);
