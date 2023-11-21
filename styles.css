@@ -3,6 +3,11 @@
   src: url("./vampire-wars.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "Hamish";
+  src: url("./Hamish.otf") format("opentype");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -23,8 +28,7 @@ body {
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  max-width: 600px;
-  background-color: rgb(208, 208, 208);
+  background-image: url("./Christmas Background.jpg");
   gap:40px;
 }
 
@@ -59,12 +63,11 @@ body {
 }
 
 #game-start-overlay {
-  width: 400px;
-  height: 600px;
+  height: 100vh;
+  width:100%;
   position: absolute;
   z-index: 999;
-  background-color: rgb(148, 155, 153);
-  filter: drop-shadow(20px 20px 4px #323234);
+  background-image: url("./Christmas Background.jpg");
   display: flex;
   flex-direction: column;
   justify-content: center;
