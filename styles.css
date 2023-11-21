@@ -12,6 +12,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Hamish";
 }
 
 body {
@@ -46,6 +47,47 @@ body {
 #player-1-message {
   text-align: center;
   width:80%;
+  font-size:2rem;
+  color:#F7F0F0;
+  max-width:400px;
+}
+
+#player-1-name {
+  background-color: rgba(255, 0, 0, 0);
+  border:none;
+  border:2px solid white;
+  width:320px;
+  height:60px;
+  font-size:2rem;
+  padding-left:10px;
+  padding-right:10px;
+  color:white;
+  border-radius:10px;
+}
+
+#player-2-name {
+  background-color: rgba(255, 0, 0, 0);
+  border:none;
+  border:2px solid white;
+  width:320px;
+  height:60px;
+  font-size:2rem;
+  padding-left:10px;
+  padding-right:10px;
+  color:white;
+  border-radius:10px;
+}
+
+#choose-difficulty {
+  background-color: rgba(255, 0, 0, 0);
+  border:none;
+  border:2px solid white;
+  width:320px;
+  height:60px;
+  font-size:2rem;
+  padding:10px;
+  color:white;
+  border-radius:10px;
 }
 
 .grid-item {
@@ -78,16 +120,16 @@ body {
 h1 {
   font-size:8rem;
   font-family: "Hamish";
-  color:white;
+  color:#F7F0F0;
 }
 
 #santa-title {
   color: #CF0002;
   text-shadow: 
-      -3px -3px 0 white,
-      3px -3px 0 white,
-      -3px 3px 0 white,
-      3px 3px 0 white;
+      -3px -3px 0 #F7F0F0,
+      3px -3px 0 #F7F0F0,
+      -3px 3px 0 #F7F0F0,
+      3px 3px 0 #F7F0F0;
 }
 
 #vs-title {
@@ -97,40 +139,59 @@ h1 {
 #sprouts-title {
   color: #47672c;
   text-shadow: 
-      -3px -3px 0 white,
-      3px -3px 0 white,
-      -3px 3px 0 white,
-      3px 3px 0 white;
+      -3px -3px 0 #F7F0F0,
+      3px -3px 0 #F7F0F0,
+      -3px 3px 0 #F7F0F0,
+      3px 3px 0 #F7F0F0;
 }
 
 #radio-container {
   display: flex;
   flex-direction: row;
   gap: 24px;
+  font-size:2rem;
+  color:#F7F0F0;
 }
 
 #ai-container {
   display: flex;
   flex-direction: row;
   gap: 24px;
+  font-size:2rem;
+  color:#F7F0F0;
 }
 
 #player-2-container {
   display:flex;
   flex-direction: column;
   display: none;
+  font-size:2rem;
+  color:#F7F0F0;
   gap:20px;
+  align-items: center;
 }
 
 #difficulty-container {
   display:flex;
   flex-direction:column;
   gap:20px;
+  font-size:2rem;
+  color:#F7F0F0;
+  align-items: center;
 }
 
 #continue-button {
-  width: 200px;
-  height: 40px;
+  padding:10px 20px 10px 20px;
+  color:#F7F0F0;
+  background-color:#cf000300;
+  border:none;
+  border: 2px solid #F7F0F0;
+  font-size:2rem;
+  border-radius:10px;
+}
+
+#continue-button:hover {
+  cursor:pointer;
 }
 
 #game-outcome-overlay {
