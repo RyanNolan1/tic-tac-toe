@@ -75,6 +75,34 @@ body {
   gap: 24px;
 }
 
+h1 {
+  font-size:8rem;
+  font-family: "Hamish";
+  color:white;
+}
+
+#santa-title {
+  color: #CF0002;
+  text-shadow: 
+      -3px -3px 0 white,
+      3px -3px 0 white,
+      -3px 3px 0 white,
+      3px 3px 0 white;
+}
+
+#vs-title {
+  font-size:5rem;
+}
+
+#sprouts-title {
+  color: #47672c;
+  text-shadow: 
+      -3px -3px 0 white,
+      3px -3px 0 white,
+      -3px 3px 0 white,
+      3px 3px 0 white;
+}
+
 #radio-container {
   display: flex;
   flex-direction: row;
