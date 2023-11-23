@@ -202,7 +202,7 @@ const markerHandler = (function () {
     gameOutComeOverlay.style.visibility = "hidden";
     gridItem.forEach((element) => {
       element.innerHTML = "";
-      element.style.backgroundColor = "white";
+      element.style.backgroundColor = "#424B54";
       element.style.backgroundImage = "none";
     });
   });
@@ -212,7 +212,7 @@ const markerHandler = (function () {
     gameOutComeOverlay.style.visibility = "hidden";
     gridItem.forEach((element) => {
       element.innerHTML = "";
-      element.style.backgroundColor = "white";
+      element.style.backgroundColor = "#424B54";
       element.style.backgroundImage = "none";
     });
 
