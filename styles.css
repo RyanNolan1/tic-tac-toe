@@ -20,7 +20,7 @@ body {
   justify-content: center;
   width: 100vw;
   height: 100vh;
-    overflow-x: hidden;
+  overflow: hidden;
 }
 
 label {
@@ -42,7 +42,7 @@ input {
   height: 100vh;
   background-image: url("./Christmas Background.jpg");
   gap:40px;
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 #game-container {
@@ -79,6 +79,7 @@ input {
   border:none;
   border:2px solid white;
   width:90%;
+  height:60px;
   max-width:320px;
   padding-left:10px;
   padding-right:10px;
@@ -121,11 +122,11 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
 }
 
 h1 {
-  font-size:8rem;
+  font-size:7rem;
   font-family: "Hamish";
   color:#F7F0F0;
 }
