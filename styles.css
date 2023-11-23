@@ -224,15 +224,29 @@ h1 {
 #game-outcome-message {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 4rem;
+  font-family: "Hamish";
+  color:#F7F0F0;
 }
 
 #game-outcome-overlay-buttons {
-  height: 30px;
-  width: 200px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   gap: 20px;
+}
+
+#game-outcome-overlay-buttons button {
+width:160px;
+height:60px;
+font-size:2rem;
+color:#F7F0F0;
+border:none;
+background: none;
+}
+
+#game-outcome-overlay-buttons button:hover {
+ cursor:pointer;
+ color:#D8DDEF;
 }
 
 #game-score {
