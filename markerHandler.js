@@ -17,6 +17,7 @@ const markerHandler = (function () {
   let playerOneMarker;
   let playerTwoMarker;
   let randomNumber = 0;
+  
 
   continueButton.addEventListener("click", () => {
     playerOneScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
@@ -107,6 +108,8 @@ const markerHandler = (function () {
     return moves[bestMove];
   }
 
+  let computedStyle = window.getComputedStyle(gameOutComeOverlay);
+
   function playAiRound() {
     let emptyCellIndex = [];
     gridItem.forEach((element, index) => {
@@ -132,15 +135,20 @@ const markerHandler = (function () {
       }
     });
     let randomIndex =
-      emptyCellIndex[Math.floor(Math.random() * emptyCellIndex.length)];
+    emptyCellIndex[Math.floor(Math.random() * emptyCellIndex.length)];
     if (emptyCellIndex.length > 1) {
       gridItem[randomIndex].innerHTML = chosenMarker[whichMarker];
       whichMarker += 1;
     }
-
+    
     emptyCellIndex.forEach((element, index) => {
       if (element === randomIndex) emptyCellIndex.splice(index, 1);
     });
+    setTimeout(() => {
+      if (computedStyle.visibility === "hidden") {
+          characterHandler();
+        }
+      }, "500");
   }
 
   function characterHandler() {
@@ -161,8 +169,8 @@ const markerHandler = (function () {
       randomNumber = Math.random() * 100;
       if (gridItem[index].innerHTML === "") {
         gridItem[index].innerHTML = chosenMarker[whichMarker];
-
         whichMarker += 1;
+        characterHandler();
         if (
           theGameStructure.playerTwo === "AI" &&
           theGameStructure.difficulty === "random"
@@ -193,7 +201,6 @@ const markerHandler = (function () {
         ) {
           playAiRound();
         }
-        characterHandler();
       }
     });
   });
