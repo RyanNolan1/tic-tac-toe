@@ -85,6 +85,7 @@ const whoWins = (function () {
           (theGameStructure.playerTwo === "AI" && moveCount === 5)
         ) {
           gameOutComeMessage.innerHTML = "It's a Draw!";
+          gameScore.style.visibility = "hidden"
           gameOutComeOverlay.style.visibility = "visible";
           gameArray = ["", "", "", "", "", "", "", "", ""];
           moveCount = 0;
