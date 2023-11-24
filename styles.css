@@ -326,4 +326,9 @@ background: none;
     width:320px;
     height:50px;
   }
+
+  #game-score {
+    flex-direction:column;
+    font-size:2rem;
+  }
 }

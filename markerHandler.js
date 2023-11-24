@@ -9,6 +9,7 @@ const newGameButton = document.getElementById("new-game-button");
 const gridItem = document.querySelectorAll(".grid-item");
 const playerOneScore = document.getElementById("player-one-score");
 const playerTwoScore = document.getElementById("player-two-score");
+const gameScore = document.getElementById("game-score");
 
 const markerHandler = (function () {
   let chosenMarker;
@@ -200,6 +201,7 @@ const markerHandler = (function () {
   nextRoundButton.addEventListener("click", function () {
     whichMarker = 0;
     gameOutComeOverlay.style.visibility = "hidden";
+    gameScore.style.visibility = "visible"
     gridItem.forEach((element) => {
       element.innerHTML = "";
       element.style.backgroundColor = "#424B54";
@@ -210,6 +212,7 @@ const markerHandler = (function () {
   newGameButton.addEventListener("click", function () {
     whichMarker = 0;
     gameOutComeOverlay.style.visibility = "hidden";
+    gameScore.style.visibility = "visible"
     gridItem.forEach((element) => {
       element.innerHTML = "";
       element.style.backgroundColor = "#424B54";

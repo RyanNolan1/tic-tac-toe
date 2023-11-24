@@ -7,6 +7,7 @@ const gameOutComeMessage = document.getElementById("game-outcome-message");
 const newGameButton = document.getElementById("new-game-button");
 const playerOneScore = document.getElementById("player-one-score");
 const playerTwoScore = document.getElementById("player-two-score");
+const gameScore = document.getElementById("game-score");
 
 const whoWins = (function () {
   let gameArray = ["", "", "", "", "", "", "", "", ""];
@@ -41,6 +42,7 @@ const whoWins = (function () {
         function announceWinner(winningMarker) {
           gameOutComeMessage.innerHTML = `${winningMarker} Wins!`;
           gameOutComeOverlay.style.visibility = "visible";
+          gameScore.style.visibility = "hidden"
           gameArray = ["", "", "", "", "", "", "", "", ""];
           moveCount = 0;
           if (winningMarker === theGameStructure.playerOneMarker) {
