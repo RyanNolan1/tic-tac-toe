@@ -211,6 +211,7 @@ h1 {
   z-index: 999;
   visibility: hidden;
   display: flex;
+  padding-top:5vh;
 }
 
 #game-outcome-content {
@@ -267,6 +268,21 @@ background: none;
   #game-start-overlay {
     gap:20px;
   }
+
+#game-outcome-overlay {
+  display:flex;
+  flex-direction: column;;
+  align-items: center;
+}
+
+#game-outcome-content {
+  width:90%;
+  text-align: center;
+}
+
+#game-outcome-message {
+font-size:2rem;
+}
 
   #game-title {
     font-size:3rem;
