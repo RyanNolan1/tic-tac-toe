@@ -200,6 +200,8 @@ h1 {
 
 #continue-button:hover {
   cursor:pointer;
+  color:#D8DDEF;
+  border-color:#D8DDEF;
 }
 
 #game-outcome-overlay {
