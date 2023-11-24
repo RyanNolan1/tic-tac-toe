@@ -125,6 +125,11 @@ const markerHandler = (function () {
       emptyCellIndex.splice(computersMove, 1, chosenMarker[whichMarker]);
     }
     whichMarker += 1;
+    setTimeout(() => {
+      if (computedStyle.visibility === "hidden") {
+          characterHandler();
+        }
+      }, "500");
   }
 
   function playRandomAiRound() {

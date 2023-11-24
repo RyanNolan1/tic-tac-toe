@@ -20,6 +20,20 @@ const whoWins = (function () {
     playerTwoWinsCount = 0;
   });
 
+// needs to be imported from marker Handler
+  function characterHandler() {
+    gridItem.forEach((element) => {
+      if (element.innerHTML === "X") {
+        element.style.backgroundImage = "url('./santa.png')";
+      } else if (element.innerHTML === "O") {
+        element.style.backgroundImage = "url('./sprout.png')";
+      }
+      element.style.backgroundSize = "80px 80px";
+      element.style.backgroundRepeat = "no-repeat";
+      element.style.backgroundPosition = "center";
+    });
+  }
+
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
     if (gameArray[index] === "") {
@@ -53,6 +67,7 @@ const whoWins = (function () {
             playerTwoWinsCount += 1;
             playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.playerTwoMarker}) Score: ${playerTwoWinsCount}`;
             gameOutComeMessage.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.playerTwoMarker}) Wins!`;
+            characterHandler();
           }
         }
 
