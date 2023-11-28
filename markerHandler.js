@@ -46,8 +46,13 @@ const markerHandler = (function () {
         playerTwoMarker = "X";
       }
 
-      playerOneScore.innerHTML = `${playerNameHandler(theGameStructure.playerOne)} ${nameHandler(theGameStructure.playerOneMarker)} Score: 0`;
-      playerTwoScore.innerHTML = `${playerNameHandler(theGameStructure.playerTwo)} ${nameHandler(theGameStructure.playerTwoMarker)} Score: 0`;
+      if (theGameStructure.playerOne === '') {
+        playerOneScore.innerHTML = `${nameHandler(theGameStructure.playerOneMarker)} Score: 0`;
+        playerTwoScore.innerHTML = `${nameHandler(theGameStructure.playerTwoMarker)} Score: 0`;
+       } else if (theGameStructure.playerOne !== '') {
+        playerOneScore.innerHTML = `${playerNameHandler(theGameStructure.playerOne)} Score: 0`;
+        playerTwoScore.innerHTML = `${playerNameHandler(theGameStructure.playerTwo)} Score: 0`;
+      }
     });
   });
 
@@ -230,8 +235,13 @@ const markerHandler = (function () {
       element.style.backgroundImage = "none";
     });
 
-    playerOneScore.innerHTML = `${playerNameHandler(theGameStructure.playerOne)} ${nameHandler(theGameStructure.playerOneMarker)} Score: 0`;
-    playerTwoScore.innerHTML = `${playerNameHandler(theGameStructure.playerTwo)} ${nameHandler(theGameStructure.playerTwoMarker)} Score: 0`;
+    if (theGameStructure.playerOne === '') {
+      playerOneScore.innerHTML = `${nameHandler(theGameStructure.playerOneMarker)} Score: 0`;
+      playerTwoScore.innerHTML = `${nameHandler(theGameStructure.playerTwoMarker)} Score: 0`;
+     } else if (theGameStructure.playerOne !== '') {
+      playerOneScore.innerHTML = `${playerNameHandler(theGameStructure.playerOne)} Score: 0`;
+      playerTwoScore.innerHTML = `${playerNameHandler(theGameStructure.playerTwo)} Score: 0`;
+    }
 
     gameStartOverlay.style.visibility = "visible";
   });
