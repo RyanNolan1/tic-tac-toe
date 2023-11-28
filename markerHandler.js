@@ -1,5 +1,5 @@
 import theGameStructure from "./theGameStructure.js";
-import { characterHandler } from "./characterHandler.js"
+import { characterHandler } from "./characterHandler.js";
 
 const chooseMarker = document.getElementsByName("choose-marker");
 const continueButton = document.getElementById("continue-button");
@@ -18,11 +18,22 @@ const markerHandler = (function () {
   let playerOneMarker;
   let playerTwoMarker;
   let randomNumber = 0;
+
+  function nameHandler(marker) {
+    if (marker === "X") {
+      return "Santa";
+    } else if (marker === "O") {
+      return "Sprouts";
+    }
+  }
   
+  function playerNameHandler(playerName) {
+    if (playerName === 'AI' || playerName === '') {
+      return '';
+    } else return playerName
+  }
 
   continueButton.addEventListener("click", () => {
-    playerOneScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
-    playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (O) Score: 0`;
     gameStartOverlay.style.visibility = "hidden";
     chooseMarker.forEach((element) => {
       if (element.checked && element.value === "X") {
@@ -35,8 +46,8 @@ const markerHandler = (function () {
         playerTwoMarker = "X";
       }
 
-      playerOneScore.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.playerOneMarker}) Score: 0`;
-      playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.playerTwoMarker}) Score: 0`;
+      playerOneScore.innerHTML = `${playerNameHandler(theGameStructure.playerOne)} ${nameHandler(theGameStructure.playerOneMarker)} Score: 0`;
+      playerTwoScore.innerHTML = `${playerNameHandler(theGameStructure.playerTwo)} ${nameHandler(theGameStructure.playerTwoMarker)} Score: 0`;
     });
   });
 
@@ -128,9 +139,9 @@ const markerHandler = (function () {
     whichMarker += 1;
     setTimeout(() => {
       if (computedStyle.visibility === "hidden") {
-          characterHandler();
-        }
-      }, "500");
+        characterHandler();
+      }
+    }, "500");
   }
 
   function playRandomAiRound() {
@@ -141,20 +152,20 @@ const markerHandler = (function () {
       }
     });
     let randomIndex =
-    emptyCellIndex[Math.floor(Math.random() * emptyCellIndex.length)];
+      emptyCellIndex[Math.floor(Math.random() * emptyCellIndex.length)];
     if (emptyCellIndex.length > 1) {
       gridItem[randomIndex].innerHTML = chosenMarker[whichMarker];
       whichMarker += 1;
     }
-    
+
     emptyCellIndex.forEach((element, index) => {
       if (element === randomIndex) emptyCellIndex.splice(index, 1);
     });
     setTimeout(() => {
       if (computedStyle.visibility === "hidden") {
-          characterHandler();
-        }
-      }, "500");
+        characterHandler();
+      }
+    }, "500");
   }
 
   gridItem.forEach((element, index) => {
@@ -201,7 +212,7 @@ const markerHandler = (function () {
   nextRoundButton.addEventListener("click", function () {
     whichMarker = 0;
     gameOutComeOverlay.style.visibility = "hidden";
-    gameScore.style.visibility = "visible"
+    gameScore.style.visibility = "visible";
     gridItem.forEach((element) => {
       element.innerHTML = "";
       element.style.backgroundColor = "#424B54";
@@ -212,15 +223,15 @@ const markerHandler = (function () {
   newGameButton.addEventListener("click", function () {
     whichMarker = 0;
     gameOutComeOverlay.style.visibility = "hidden";
-    gameScore.style.visibility = "visible"
+    gameScore.style.visibility = "visible";
     gridItem.forEach((element) => {
       element.innerHTML = "";
       element.style.backgroundColor = "#424B54";
       element.style.backgroundImage = "none";
     });
 
-    playerOneScore.innerHTML = `${theGameStructure.playerOne} (${playerOneMarker}) Score: 0`;
-    playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (${playerTwoMarker}) Score: 0`;
+    playerOneScore.innerHTML = `${playerNameHandler(theGameStructure.playerOne)} ${nameHandler(theGameStructure.playerOneMarker)} Score: 0`;
+    playerTwoScore.innerHTML = `${playerNameHandler(theGameStructure.playerTwo)} ${nameHandler(theGameStructure.playerTwoMarker)} Score: 0`;
 
     gameStartOverlay.style.visibility = "visible";
   });
