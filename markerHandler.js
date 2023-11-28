@@ -1,4 +1,5 @@
 import theGameStructure from "./theGameStructure.js";
+import { characterHandler } from "./characterHandler.js"
 
 const chooseMarker = document.getElementsByName("choose-marker");
 const continueButton = document.getElementById("continue-button");
@@ -154,19 +155,6 @@ const markerHandler = (function () {
           characterHandler();
         }
       }, "500");
-  }
-
-  function characterHandler() {
-    gridItem.forEach((element) => {
-      if (element.innerHTML === "X") {
-        element.style.backgroundImage = "url('./santa.png')";
-      } else if (element.innerHTML === "O") {
-        element.style.backgroundImage = "url('./sprout.png')";
-      }
-      element.style.backgroundSize = "80px 80px";
-      element.style.backgroundRepeat = "no-repeat";
-      element.style.backgroundPosition = "center";
-    });
   }
 
   gridItem.forEach((element, index) => {
