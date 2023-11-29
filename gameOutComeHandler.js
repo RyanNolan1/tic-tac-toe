@@ -16,20 +16,6 @@ const whoWins = (function () {
   let playerOneWinsCount = 0;
   let playerTwoWinsCount = 0;
 
-    function nameHandler(marker) {
-    if (marker === "X") {
-      return "Santa";
-    } else if (marker === "O") {
-      return "Sprouts";
-    }
-  }
-
-  function playerNameHandler(playerName) {
-    if (playerName === 'AI' || playerName === '') {
-      return '';
-    } else return playerName
-  }
-
   newGameButton.addEventListener("click", function () {
     playerOneWinsCount= 0;
     playerTwoWinsCount = 0;
@@ -62,12 +48,12 @@ const whoWins = (function () {
           moveCount = 0;
           if (winningMarker === theGameStructure.playerOneMarker) {
             playerOneWinsCount += 1;
-            playerOneScore.innerHTML = `${playerNameHandler(theGameStructure.playerOne)} ${nameHandler(theGameStructure.playerOneMarker)} Score: ${playerOneWinsCount}`;
-            gameOutComeMessage.innerHTML = `${playerNameHandler(theGameStructure.playerOne)} ${nameHandler(theGameStructure.playerOneMarker)} Wins!`;
+            playerOneScore.innerHTML = `${theGameStructure.playerOne} Score: ${playerOneWinsCount}`;
+            gameOutComeMessage.innerHTML = `${theGameStructure.playerOne} Wins!`;
           } else if (winningMarker === theGameStructure.playerTwoMarker) {
             playerTwoWinsCount += 1;
-            playerTwoScore.innerHTML = `${playerNameHandler(theGameStructure.playerTwo)} ${nameHandler(theGameStructure.playerTwoMarker)} Score: ${playerTwoWinsCount}`;
-            gameOutComeMessage.innerHTML = `${playerNameHandler(theGameStructure.playerTwo)} ${nameHandler(theGameStructure.playerTwoMarker)} Wins!`;
+            playerTwoScore.innerHTML = `${theGameStructure.playerTwo}  Score: ${playerTwoWinsCount}`;
+            gameOutComeMessage.innerHTML = `${theGameStructure.playerTwo} Wins!`;
             characterHandler();
           }
         }

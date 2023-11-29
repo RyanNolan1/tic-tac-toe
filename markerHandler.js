@@ -19,20 +19,6 @@ const markerHandler = (function () {
   let playerTwoMarker;
   let randomNumber = 0;
 
-  function nameHandler(marker) {
-    if (marker === "X") {
-      return "Santa";
-    } else if (marker === "O") {
-      return "Sprouts";
-    }
-  }
-  
-  function playerNameHandler(playerName) {
-    if (playerName === 'AI' || playerName === '') {
-      return '';
-    } else return playerName
-  }
-
   continueButton.addEventListener("click", () => {
     gameStartOverlay.style.visibility = "hidden";
     chooseMarker.forEach((element) => {
@@ -45,14 +31,8 @@ const markerHandler = (function () {
         playerOneMarker = "O";
         playerTwoMarker = "X";
       }
-
-      if (theGameStructure.playerOne === '') {
-        playerOneScore.innerHTML = `${nameHandler(theGameStructure.playerOneMarker)} Score: 0`;
-        playerTwoScore.innerHTML = `${nameHandler(theGameStructure.playerTwoMarker)} Score: 0`;
-       } else if (theGameStructure.playerOne !== '') {
-        playerOneScore.innerHTML = `${playerNameHandler(theGameStructure.playerOne)} Score: 0`;
-        playerTwoScore.innerHTML = `${playerNameHandler(theGameStructure.playerTwo)} Score: 0`;
-      }
+      playerOneScore.innerHTML = `${theGameStructure.playerOne} Score: 0`;
+      playerTwoScore.innerHTML = `${theGameStructure.playerTwo} Score: 0`;
     });
   });
 
@@ -235,13 +215,10 @@ const markerHandler = (function () {
       element.style.backgroundImage = "none";
     });
 
-    if (theGameStructure.playerOne === '') {
-      playerOneScore.innerHTML = `${nameHandler(theGameStructure.playerOneMarker)} Score: 0`;
-      playerTwoScore.innerHTML = `${nameHandler(theGameStructure.playerTwoMarker)} Score: 0`;
-     } else if (theGameStructure.playerOne !== '') {
-      playerOneScore.innerHTML = `${playerNameHandler(theGameStructure.playerOne)} Score: 0`;
-      playerTwoScore.innerHTML = `${playerNameHandler(theGameStructure.playerTwo)} Score: 0`;
-    }
+  
+      playerOneScore.innerHTML = `${theGameStructure.playerOne} Score: 0`;
+      playerTwoScore.innerHTML = `${theGameStructure.playerTwo} Score: 0`;
+
 
     gameStartOverlay.style.visibility = "visible";
   });
