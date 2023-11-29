@@ -179,6 +179,7 @@ h1 {
   color:#F7F0F0;
   gap:20px;
   align-items: center;
+  width:100%;
 }
 
 #difficulty-container {
