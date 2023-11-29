@@ -31,8 +31,8 @@ const markerHandler = (function () {
         playerOneMarker = "O";
         playerTwoMarker = "X";
       }
-      playerOneScore.innerHTML = `${theGameStructure.playerOne} Score: 0`;
-      playerTwoScore.innerHTML = `${theGameStructure.playerTwo} Score: 0`;
+      playerOneScore.innerHTML = `${theGameStructure.playerOneCharacter} Score: 0`;
+      playerTwoScore.innerHTML = `${theGameStructure.playerTwoCharacter} Score: 0`;
     });
   });
 

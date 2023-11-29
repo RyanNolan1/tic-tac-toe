@@ -48,12 +48,12 @@ const whoWins = (function () {
           moveCount = 0;
           if (winningMarker === theGameStructure.playerOneMarker) {
             playerOneWinsCount += 1;
-            playerOneScore.innerHTML = `${theGameStructure.playerOne} Score: ${playerOneWinsCount}`;
-            gameOutComeMessage.innerHTML = `${theGameStructure.playerOne} Wins!`;
+            playerOneScore.innerHTML = `${theGameStructure.playerOneCharacter} Score: ${playerOneWinsCount}`;
+            gameOutComeMessage.innerHTML = `${theGameStructure.playerOneCharacter} Wins!`;
           } else if (winningMarker === theGameStructure.playerTwoMarker) {
             playerTwoWinsCount += 1;
-            playerTwoScore.innerHTML = `${theGameStructure.playerTwo}  Score: ${playerTwoWinsCount}`;
-            gameOutComeMessage.innerHTML = `${theGameStructure.playerTwo} Wins!`;
+            playerTwoScore.innerHTML = `${theGameStructure.playerTwoCharacter} Score: ${playerTwoWinsCount}`;
+            gameOutComeMessage.innerHTML = `${theGameStructure.playerTwoCharacter} Wins!`;
             characterHandler();
           }
         }
