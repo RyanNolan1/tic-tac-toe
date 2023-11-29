@@ -59,12 +59,12 @@ const theGameStructure = (function () {
           if (element.checked && element.value === "X") {
             gameBoard.playerOneMarker = "X";
             gameBoard.playerTwoMarker = "O";
-          } else {
+          } else  if (element.checked && element.value === "O"){
             gameBoard.playerOneMarker = "O";
             gameBoard.playerTwoMarker = "X";
           }
-          gameBoard.playerOne = playerFactory(playerOneName.value);
-          gameBoard.playerTwo = playerFactory(playerTwoName.value);
+          gameBoard.playerOneCharacter = playerFactory(playerOneName.value);
+          gameBoard.playerTwoCharacter = playerFactory(playerTwoName.value);
         });
       }
     });

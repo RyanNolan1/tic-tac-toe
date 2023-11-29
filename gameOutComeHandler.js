@@ -41,6 +41,7 @@ const whoWins = (function () {
         const isItO = (marker) => marker === "O";
 
         function announceWinner(winningMarker) {
+          console.log(theGameStructure)
           gameOutComeMessage.innerHTML = `${winningMarker} Wins!`;
           gameOutComeOverlay.style.visibility = "visible";
           gameScore.style.visibility = "hidden"
