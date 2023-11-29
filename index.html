@@ -19,12 +19,19 @@
         </section>
       </section>
       <section id="game-start-overlay">
+        <h1>
+        <section id="game-title">
+            <span id="santa-title">Santa</span>
+            <span id="vs-title">vs</span>
+            <span id="sprouts-title">Sprouts!</span>
+          </section>
+        </h1>
         <label id="player-1-message" for="player-1-name"
           >Player 1, enter your name and choose your marker:</label
         >
         <input type="text" id="player-1-name" name="player-1-name" />
         <form id="radio-container">
-          <label for="x-radio-input"> X </label>
+          <label for="x-radio-input"> Santa </label>
           <input
             type="radio"
             id="x-radio-input"
@@ -32,7 +39,7 @@
             value="X"
             checked
           />
-          <label for="o-radio-input"> O </label>
+          <label for="o-radio-input"> Sprout </label>
           <input
             type="radio"
             id="o-radio-input"
@@ -42,12 +49,20 @@
         </form>
 
         <label id="player-1-message" for="player-1-name"
-          >Choose your opponent:</label
+          >Choose your opponent</label
         >
 
         <form id="ai-container">
           <label for="ai-input"> AI </label>
-          <input type="radio" id="ai-input" name="choose-opponent" value="AI" class="opponent-radios" checked required/>
+          <input
+            type="radio"
+            id="ai-input"
+            name="choose-opponent"
+            value="AI"
+            class="opponent-radios"
+            checked
+            required
+          />
           <label for="player-input"> Player </label>
           <input
             type="radio"
@@ -58,18 +73,18 @@
           />
         </form>
         <form id="difficulty-container">
-        <label for="difficulty">Choose difficulty:</label>
-        <select name="choose-difficulty" id="choose-difficulty">
-          <option value="random">Random</option>
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
-          <option value="impossible">Impossible</option>
-        </select>
-      </form>
+          <label for="difficulty">Choose difficulty</label>
+          <select name="choose-difficulty" id="choose-difficulty">
+            <option value="random">Random</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+            <option value="impossible">Impossible</option>
+          </select>
+        </form>
         <section id="player-2-container">
           <label id="player-2-message" for="player-2-name"
-            >Player 2, please enter your name</label
+            >Player 2, enter your name</label
           >
           <input type="text" id="player-2-name" name="player-2-name" />
         </section>

@@ -19,6 +19,8 @@ const theGameStructure = (function () {
     difficulty: "",
     playerOneMarker: "",
     playerTwoMarker: "",
+    playerOneCharacter: "",
+    playerTwoCharacter: "",
     rows: 3,
     columns: 3,
     gameArray: ["", "", "", "", "", "", "", "", ""],
@@ -34,10 +36,22 @@ const theGameStructure = (function () {
           if (element.checked && element.value === "X") {
             gameBoard.playerOneMarker = "X";
             gameBoard.playerTwoMarker = "O";
+            gameBoard.playerTwoCharacter = playerFactory("Sprouts");
+            if (gameBoard.playerOne === "") {
+              gameBoard.playerOneCharacter = "Santa";
+            } else {
+              gameBoard.playerOneCharacter = gameBoard.playerOne;
+            }
           } else if (element.checked && element.value === "O") {
             gameBoard.difficulty = chooseDifficulty.value;
             gameBoard.playerOneMarker = "O";
             gameBoard.playerTwoMarker = "X";
+            gameBoard.playerTwoCharacter = playerFactory("Santa");
+            if (gameBoard.playerOne === "") {
+              gameBoard.playerOneCharacter = "Sprouts";
+            } else {
+              gameBoard.playerOneCharacter = gameBoard.playerOne;
+            }
           }
         });
       } else if (element.checked && element.value === "Player") {
@@ -45,12 +59,12 @@ const theGameStructure = (function () {
           if (element.checked && element.value === "X") {
             gameBoard.playerOneMarker = "X";
             gameBoard.playerTwoMarker = "O";
-          } else {
+          } else  if (element.checked && element.value === "O"){
             gameBoard.playerOneMarker = "O";
             gameBoard.playerTwoMarker = "X";
           }
-          gameBoard.playerOne = playerFactory(playerOneName.value);
-          gameBoard.playerTwo = playerFactory(playerTwoName.value);
+          gameBoard.playerOneCharacter = playerFactory(playerOneName.value);
+          gameBoard.playerTwoCharacter = playerFactory(playerTwoName.value);
         });
       }
     });

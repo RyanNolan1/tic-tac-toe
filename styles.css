@@ -3,10 +3,16 @@
   src: url("./vampire-wars.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "Hamish";
+  src: url("./Hamish.otf") format("opentype");
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Hamish";
 }
 
 body {
@@ -14,6 +20,17 @@ body {
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+}
+
+label {
+  font-size:2rem;
+  color:white;
+}
+
+input {
+  font-size:2rem;
+  color:white;
 }
 
 #container {
@@ -23,16 +40,17 @@ body {
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  max-width: 600px;
-  background-color: rgb(208, 208, 208);
+  background-image: url("./Christmas Background.jpg");
   gap:40px;
+  overflow-x: hidden;
 }
 
 #game-container {
   width: 100%;
   max-width: 320px;
   min-height: 320px;
-  background-color: rgb(0, 0, 0);
+  background-color: #F7F0F0;
+  border:4px solid #F7F0F0;
   display: grid;
   grid-gap: 0.2rem;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
@@ -42,13 +60,50 @@ body {
 #player-1-message {
   text-align: center;
   width:80%;
+  max-width:400px;
+}
+
+#player-1-name {
+  background-color: rgba(255, 0, 0, 0);
+  border:none;
+  border:2px solid white;
+  width:90%;
+  max-width:320px;
+  height:60px;
+  padding-left:10px;
+  padding-right:10px;
+  border-radius:10px;
+}
+
+#player-2-name {
+  background-color: rgba(255, 0, 0, 0);
+  border:none;
+  border:2px solid white;
+  width:90%;
+  height:60px;
+  max-width:320px;
+  padding-left:10px;
+  padding-right:10px;
+  border-radius:10px;
+}
+
+#choose-difficulty {
+  background-color: rgba(255, 0, 0, 0);
+  border:none;
+  border:2px solid white;
+  width:320px;
+  height:60px;
+  padding:10px;
+  border-radius:10px;
+  font-size:2rem;
+  color:white;
 }
 
 .grid-item {
   font-family: "VampireWars", sans-serif;
-  font-size: 5rem;
-  color: black;
+  color:transparent;
   background-color: rgb(255, 255, 255);
+  border:2px solid #F7F0F0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,47 +115,93 @@ body {
 }
 
 #game-start-overlay {
-  width: 400px;
-  height: 600px;
+  height: 100vh;
+  width:100%;
   position: absolute;
   z-index: 999;
-  background-color: rgb(148, 155, 153);
-  filter: drop-shadow(20px 20px 4px #323234);
+  background-image: url("./Christmas Background.jpg");
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
+}
+
+h1 {
+  font-size:7rem;
+  font-family: "Hamish";
+  color:#F7F0F0;
+}
+
+#santa-title {
+  color: #CF0002;
+  text-shadow: 
+      -3px -3px 0 #F7F0F0,
+      3px -3px 0 #F7F0F0,
+      -3px 3px 0 #F7F0F0,
+      3px 3px 0 #F7F0F0;
+}
+
+#vs-title {
+  font-size:5rem;
+}
+
+#sprouts-title {
+  color: #47672c;
+  text-shadow: 
+      -3px -3px 0 #F7F0F0,
+      3px -3px 0 #F7F0F0,
+      -3px 3px 0 #F7F0F0,
+      3px 3px 0 #F7F0F0;
 }
 
 #radio-container {
   display: flex;
   flex-direction: row;
   gap: 24px;
+  font-size:2rem;
+  color:#F7F0F0;
 }
 
 #ai-container {
   display: flex;
   flex-direction: row;
   gap: 24px;
+  font-size:2rem;
+  color:#F7F0F0;
 }
 
 #player-2-container {
   display:flex;
   flex-direction: column;
   display: none;
+  font-size:2rem;
+  color:#F7F0F0;
   gap:20px;
+  align-items: center;
 }
 
 #difficulty-container {
   display:flex;
   flex-direction:column;
   gap:20px;
+  align-items: center;
 }
 
 #continue-button {
-  width: 200px;
-  height: 40px;
+  padding:10px 20px 10px 20px;
+  color:#F7F0F0;
+  background-color:#cf000300;
+  border:none;
+  border: 2px solid #F7F0F0;
+  font-size:2rem;
+  border-radius:10px;
+}
+
+#continue-button:hover {
+  cursor:pointer;
+  color:#D8DDEF;
+  border-color:#D8DDEF;
 }
 
 #game-outcome-overlay {
@@ -110,6 +211,7 @@ body {
   z-index: 999;
   visibility: hidden;
   display: flex;
+  padding-top:5vh;
 }
 
 #game-outcome-content {
@@ -125,24 +227,124 @@ body {
 #game-outcome-message {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 4rem;
+  font-family: "Hamish";
+  color:#F7F0F0;
 }
 
 #game-outcome-overlay-buttons {
-  height: 30px;
-  width: 200px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   gap: 20px;
+}
+
+#game-outcome-overlay-buttons button {
+width:160px;
+height:60px;
+font-size:2rem;
+color:#F7F0F0;
+border:none;
+background: none;
+}
+
+#game-outcome-overlay-buttons button:hover {
+ cursor:pointer;
+ color:#D8DDEF;
 }
 
 #game-score {
   font-family: Arial, Helvetica, sans-serif;
-  height:50px;
-  width:400px;
+  width:100%;
   display:flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  font-size:22px;
+  font-size:3rem;
+  color:#F7F0F0;
+}
+
+
+@media only screen and (max-width: 767px) {
+  #game-start-overlay {
+    gap:20px;
+  }
+
+#game-outcome-overlay {
+  display:flex;
+  flex-direction: column;;
+  align-items: center;
+}
+
+#game-outcome-content {
+  width:90%;
+  text-align: center;
+}
+
+#game-outcome-message {
+font-size:2rem;
+}
+
+  #game-title {
+    font-size:3rem;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    gap:10px;
+  }
+  
+  #santa-title {
+    color: #CF0002;
+    text-shadow: 
+        -1px -1px 0 #F7F0F0,
+        1px -1px 0 #F7F0F0,
+        -1px 1px 0 #F7F0F0,
+        1px 1px 0 #F7F0F0;
+  }
+  
+  #vs-title {
+    font-size:2rem;
+  }
+  
+  #sprouts-title {
+    color: #47672c;
+    text-shadow: 
+        -1px -1px 0 #F7F0F0,
+        1px -1px 0 #F7F0F0,
+        -1px 1px 0 #F7F0F0,
+        1px 1px 0 #F7F0F0;
+  }
+
+  label {
+    font-size:1.5rem;
+    color:white;
+  }
+
+  input {
+    font-size:1.5rem;
+    color:white;
+  }
+
+  #choose-difficulty {
+    font-size:1.5rem;
+  }
+
+  #player-1-name {
+    max-width:320px;
+    height:50px;
+  }
+  
+  #player-2-name {
+    max-width:320px;
+    height:50px;
+  }
+  
+  #choose-difficulty {
+    width:320px;
+    height:50px;
+  }
+
+  #game-score {
+    flex-direction:column;
+    font-size:2rem;
+  }
 }

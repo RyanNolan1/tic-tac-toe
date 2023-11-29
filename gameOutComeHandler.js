@@ -1,4 +1,5 @@
 import theGameStructure from "./theGameStructure.js";
+import { characterHandler } from "./characterHandler.js"
 
 const gameContainer = document.getElementById("game-container");
 const gridItem = gameContainer.querySelectorAll(".grid-item");
@@ -7,6 +8,7 @@ const gameOutComeMessage = document.getElementById("game-outcome-message");
 const newGameButton = document.getElementById("new-game-button");
 const playerOneScore = document.getElementById("player-one-score");
 const playerTwoScore = document.getElementById("player-two-score");
+const gameScore = document.getElementById("game-score");
 
 const whoWins = (function () {
   let gameArray = ["", "", "", "", "", "", "", "", ""];
@@ -21,7 +23,7 @@ const whoWins = (function () {
 
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
-      if (gameArray[index] === "") {
+    if (gameArray[index] === "") {
         moveCount++;
         gridItem.forEach((element, index) => {
           gameArray.splice(index, 1, element.innerHTML);
@@ -39,18 +41,21 @@ const whoWins = (function () {
         const isItO = (marker) => marker === "O";
 
         function announceWinner(winningMarker) {
+          console.log(theGameStructure)
           gameOutComeMessage.innerHTML = `${winningMarker} Wins!`;
           gameOutComeOverlay.style.visibility = "visible";
+          gameScore.style.visibility = "hidden"
           gameArray = ["", "", "", "", "", "", "", "", ""];
           moveCount = 0;
           if (winningMarker === theGameStructure.playerOneMarker) {
             playerOneWinsCount += 1;
-            playerOneScore.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.playerOneMarker}) Score: ${playerOneWinsCount}`;
-            gameOutComeMessage.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.playerOneMarker}) Wins!`;
+            playerOneScore.innerHTML = `${theGameStructure.playerOneCharacter} Score: ${playerOneWinsCount}`;
+            gameOutComeMessage.innerHTML = `${theGameStructure.playerOneCharacter} Wins!`;
           } else if (winningMarker === theGameStructure.playerTwoMarker) {
             playerTwoWinsCount += 1;
-            playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.playerTwoMarker}) Score: ${playerTwoWinsCount}`;
-            gameOutComeMessage.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.playerTwoMarker}) Wins!`;
+            playerTwoScore.innerHTML = `${theGameStructure.playerTwoCharacter} Score: ${playerTwoWinsCount}`;
+            gameOutComeMessage.innerHTML = `${theGameStructure.playerTwoCharacter} Wins!`;
+            characterHandler();
           }
         }
 
@@ -83,6 +88,7 @@ const whoWins = (function () {
           (theGameStructure.playerTwo === "AI" && moveCount === 5)
         ) {
           gameOutComeMessage.innerHTML = "It's a Draw!";
+          gameScore.style.visibility = "hidden"
           gameOutComeOverlay.style.visibility = "visible";
           gameArray = ["", "", "", "", "", "", "", "", ""];
           moveCount = 0;

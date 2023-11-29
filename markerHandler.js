@@ -1,4 +1,5 @@
 import theGameStructure from "./theGameStructure.js";
+import { characterHandler } from "./characterHandler.js";
 
 const chooseMarker = document.getElementsByName("choose-marker");
 const continueButton = document.getElementById("continue-button");
@@ -9,6 +10,7 @@ const newGameButton = document.getElementById("new-game-button");
 const gridItem = document.querySelectorAll(".grid-item");
 const playerOneScore = document.getElementById("player-one-score");
 const playerTwoScore = document.getElementById("player-two-score");
+const gameScore = document.getElementById("game-score");
 
 const markerHandler = (function () {
   let chosenMarker;
@@ -18,8 +20,6 @@ const markerHandler = (function () {
   let randomNumber = 0;
 
   continueButton.addEventListener("click", () => {
-    playerOneScore.innerHTML = `${theGameStructure.playerOne} (X) Score: 0`;
-    playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (O) Score: 0`;
     gameStartOverlay.style.visibility = "hidden";
     chooseMarker.forEach((element) => {
       if (element.checked && element.value === "X") {
@@ -31,10 +31,8 @@ const markerHandler = (function () {
         playerOneMarker = "O";
         playerTwoMarker = "X";
       }
-
-        playerOneScore.innerHTML = `${theGameStructure.playerOne} (${theGameStructure.playerOneMarker}) Score: 0`;
-        playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (${theGameStructure.playerTwoMarker}) Score: 0`;
-
+      playerOneScore.innerHTML = `${theGameStructure.playerOneCharacter} Score: 0`;
+      playerTwoScore.innerHTML = `${theGameStructure.playerTwoCharacter} Score: 0`;
     });
   });
 
@@ -107,6 +105,8 @@ const markerHandler = (function () {
     return moves[bestMove];
   }
 
+  let computedStyle = window.getComputedStyle(gameOutComeOverlay);
+
   function playAiRound() {
     let emptyCellIndex = [];
     gridItem.forEach((element, index) => {
@@ -122,6 +122,11 @@ const markerHandler = (function () {
       emptyCellIndex.splice(computersMove, 1, chosenMarker[whichMarker]);
     }
     whichMarker += 1;
+    setTimeout(() => {
+      if (computedStyle.visibility === "hidden") {
+        characterHandler();
+      }
+    }, "500");
   }
 
   function playRandomAiRound() {
@@ -141,6 +146,11 @@ const markerHandler = (function () {
     emptyCellIndex.forEach((element, index) => {
       if (element === randomIndex) emptyCellIndex.splice(index, 1);
     });
+    setTimeout(() => {
+      if (computedStyle.visibility === "hidden") {
+        characterHandler();
+      }
+    }, "500");
   }
 
   gridItem.forEach((element, index) => {
@@ -149,6 +159,7 @@ const markerHandler = (function () {
       if (gridItem[index].innerHTML === "") {
         gridItem[index].innerHTML = chosenMarker[whichMarker];
         whichMarker += 1;
+        characterHandler();
         if (
           theGameStructure.playerTwo === "AI" &&
           theGameStructure.difficulty === "random"
@@ -186,22 +197,28 @@ const markerHandler = (function () {
   nextRoundButton.addEventListener("click", function () {
     whichMarker = 0;
     gameOutComeOverlay.style.visibility = "hidden";
+    gameScore.style.visibility = "visible";
     gridItem.forEach((element) => {
       element.innerHTML = "";
-      element.style.backgroundColor = "white";
+      element.style.backgroundColor = "#424B54";
+      element.style.backgroundImage = "none";
     });
   });
 
   newGameButton.addEventListener("click", function () {
     whichMarker = 0;
     gameOutComeOverlay.style.visibility = "hidden";
+    gameScore.style.visibility = "visible";
     gridItem.forEach((element) => {
       element.innerHTML = "";
-      element.style.backgroundColor = "white";
+      element.style.backgroundColor = "#424B54";
+      element.style.backgroundImage = "none";
     });
 
-      playerOneScore.innerHTML = `${theGameStructure.playerOne} (${playerOneMarker}) Score: 0`;
-      playerTwoScore.innerHTML = `${theGameStructure.playerTwo} (${playerTwoMarker}) Score: 0`;
+  
+      playerOneScore.innerHTML = `${theGameStructure.playerOne} Score: 0`;
+      playerTwoScore.innerHTML = `${theGameStructure.playerTwo} Score: 0`;
+
 
     gameStartOverlay.style.visibility = "visible";
   });
