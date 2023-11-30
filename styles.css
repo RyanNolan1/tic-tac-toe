@@ -212,7 +212,7 @@ h1 {
   z-index: 999;
   visibility: hidden;
   display: flex;
-  padding-top:5vh;
+  padding-top:10vh;
 }
 
 #game-outcome-content {
