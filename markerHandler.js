@@ -213,6 +213,7 @@ const markerHandler = (function () {
       element.innerHTML = "";
       element.style.backgroundColor = "#424B54";
       element.style.backgroundImage = "none";
+      theGameStructure.playerTwo = "";
     });
 
   
