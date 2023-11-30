@@ -13,6 +13,14 @@ const theGameStructure = (function () {
     return name;
   };
 
+  function santaOrSprout(marker) {
+    if (marker === "X") {
+      return "Santa";
+    } else if (marker === "O") {
+      return "Sprout";
+    }
+  }
+
   const gameBoard = {
     playerOne: "",
     playerTwo: "",
@@ -36,7 +44,7 @@ const theGameStructure = (function () {
           if (element.checked && element.value === "X") {
             gameBoard.playerOneMarker = "X";
             gameBoard.playerTwoMarker = "O";
-            gameBoard.playerTwoCharacter = playerFactory("Sprouts");
+            gameBoard.playerTwoCharacter = playerFactory("Sprout");
             if (gameBoard.playerOne === "") {
               gameBoard.playerOneCharacter = "Santa";
             } else {
@@ -48,7 +56,7 @@ const theGameStructure = (function () {
             gameBoard.playerTwoMarker = "X";
             gameBoard.playerTwoCharacter = playerFactory("Santa");
             if (gameBoard.playerOne === "") {
-              gameBoard.playerOneCharacter = "Sprouts";
+              gameBoard.playerOneCharacter = "Sprout";
             } else {
               gameBoard.playerOneCharacter = gameBoard.playerOne;
             }
@@ -59,12 +67,24 @@ const theGameStructure = (function () {
           if (element.checked && element.value === "X") {
             gameBoard.playerOneMarker = "X";
             gameBoard.playerTwoMarker = "O";
-          } else  if (element.checked && element.value === "O"){
+          } else if (element.checked && element.value === "O") {
             gameBoard.playerOneMarker = "O";
             gameBoard.playerTwoMarker = "X";
           }
           gameBoard.playerOneCharacter = playerFactory(playerOneName.value);
           gameBoard.playerTwoCharacter = playerFactory(playerTwoName.value);
+
+          if (gameBoard.playerOneCharacter === "") {
+            gameBoard.playerOneCharacter = santaOrSprout(
+              gameBoard.playerOneMarker
+            );
+          }
+
+          if (gameBoard.playerTwoCharacter === "") {
+            gameBoard.playerTwoCharacter = santaOrSprout(
+              gameBoard.playerTwoMarker
+            );
+          }
         });
       }
     });
