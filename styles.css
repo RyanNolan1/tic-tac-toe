@@ -26,6 +26,8 @@ body {
 label {
   font-size:2rem;
   color:white;
+  text-align: center;
+  width:90%;
 }
 
 input {
@@ -85,18 +87,6 @@ input {
   padding-left:10px;
   padding-right:10px;
   border-radius:10px;
-}
-
-#choose-difficulty {
-  background-color: rgba(255, 0, 0, 0);
-  border:none;
-  border:2px solid white;
-  width:320px;
-  height:60px;
-  padding:10px;
-  border-radius:10px;
-  font-size:2rem;
-  color:white;
 }
 
 .grid-item {
@@ -188,6 +178,19 @@ h1 {
   flex-direction:column;
   gap:20px;
   align-items: center;
+  width:90%;
+  max-width:320px;
+}
+
+#choose-difficulty {
+  background-color: rgba(255, 0, 0, 0);
+  border:none;
+  border:2px solid white;
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  font-size:2rem;
+  color:white;
 }
 
 #continue-button {
@@ -367,14 +370,26 @@ font-size:2rem;
     max-width:320px;
     height:50px;
   }
-  
-  #choose-difficulty {
-    width:320px;
-    height:50px;
-  }
 
   #game-score {
     flex-direction:column;
     font-size:2rem;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  #game-title {
+    flex-direction: column;
+    gap:0px;
+  }
+
+  #game-container {
+    width: 90%;
+  }
+
+  #game-outcome-overlay-buttons {
+    flex-direction:column;
+    gap:0px;
+    margin-top:10px;
   }
 }
