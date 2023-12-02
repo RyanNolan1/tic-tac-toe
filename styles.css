@@ -264,6 +264,36 @@ background: none;
   color:#F7F0F0;
 }
 
+@media only screen and (max-width: 1024px) {
+  #game-title {
+    font-size:5rem;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    gap:10px;
+  }
+  
+  #santa-title {
+    text-shadow: 
+        -1px -1px 0 #F7F0F0,
+        1px -1px 0 #F7F0F0,
+        -1px 1px 0 #F7F0F0,
+        1px 1px 0 #F7F0F0;
+  }
+  
+  #vs-title {
+    font-size:4rem;
+  }
+
+  #sprouts-title {
+    text-shadow: 
+        -1px -1px 0 #F7F0F0,
+        1px -1px 0 #F7F0F0,
+        -1px 1px 0 #F7F0F0,
+        1px 1px 0 #F7F0F0;
+  }
+}
+
 
 @media only screen and (max-width: 767px) {
   #game-start-overlay {
@@ -295,7 +325,6 @@ font-size:2rem;
   }
   
   #santa-title {
-    color: #CF0002;
     text-shadow: 
         -1px -1px 0 #F7F0F0,
         1px -1px 0 #F7F0F0,
@@ -308,7 +337,6 @@ font-size:2rem;
   }
   
   #sprouts-title {
-    color: #47672c;
     text-shadow: 
         -1px -1px 0 #F7F0F0,
         1px -1px 0 #F7F0F0,
