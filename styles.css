@@ -71,7 +71,7 @@ input {
   border:2px solid white;
   width:90%;
   max-width:320px;
-  height:60px;
+  height:50px;
   padding-left:10px;
   padding-right:10px;
   border-radius:10px;
@@ -82,7 +82,7 @@ input {
   border:none;
   border:2px solid white;
   width:90%;
-  height:60px;
+  height:50px;
   max-width:320px;
   padding-left:10px;
   padding-right:10px;
@@ -188,20 +188,23 @@ h1 {
   border:none;
   border:2px solid white;
   width:100%;
-  padding:10px;
+  height:50px;
   border-radius:10px;
   font-size:2rem;
   color:white;
+  padding-left:10px;
+  padding-right:10px;
 }
 
 #continue-button {
-  padding:10px 20px 10px 20px;
   color:#F7F0F0;
   background-color:#cf000300;
   border:none;
   border: 2px solid #F7F0F0;
   font-size:2rem;
   border-radius:10px;
+  height:50px;
+  width:140px;
 }
 
 #continue-button:hover {
@@ -360,16 +363,6 @@ font-size:2rem;
 
   #choose-difficulty {
     font-size:1.5rem;
-  }
-
-  #player-1-name {
-    max-width:320px;
-    height:50px;
-  }
-  
-  #player-2-name {
-    max-width:320px;
-    height:50px;
   }
 
   #game-score {
