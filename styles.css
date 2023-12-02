@@ -125,6 +125,7 @@ input {
   justify-content: center;
   align-items: center;
   gap: 16px;
+  visibility: visible;
 }
 
 h1 {
@@ -267,6 +268,7 @@ background: none;
 @media only screen and (max-width: 767px) {
   #game-start-overlay {
     gap:20px;
+    height: 100svh;
   }
 
 #game-outcome-overlay {
