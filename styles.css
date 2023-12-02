@@ -200,9 +200,7 @@ h1 {
   color:#F7F0F0;
   background-color:#cf000300;
   border:none;
-  border: 2px solid #F7F0F0;
   font-size:2rem;
-  border-radius:10px;
   height:50px;
   width:140px;
 }
@@ -210,7 +208,6 @@ h1 {
 #continue-button:hover {
   cursor:pointer;
   color:#D8DDEF;
-  border-color:#D8DDEF;
 }
 
 #game-outcome-overlay {
