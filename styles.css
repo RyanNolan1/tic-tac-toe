@@ -45,6 +45,7 @@ input {
   background-image: url("./Christmas Background.jpg");
   gap:40px;
   overflow-x: hidden;
+  position:fixed;
 }
 
 #game-container {
