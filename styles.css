@@ -13,6 +13,9 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Hamish";
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 body {
@@ -212,7 +215,7 @@ h1 {
 }
 
 #game-outcome-overlay {
-  width: 100%;
+  height:100vh;
   position: absolute;
   z-index: 999;
   visibility: hidden;
