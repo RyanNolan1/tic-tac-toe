@@ -156,7 +156,7 @@ const markerHandler = (function () {
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
       randomNumber = Math.random() * 100;
-      if (gridItem[index].innerHTML === "" && computedStyle.visibility === "hidden") {
+      if (gridItem[index].innerHTML === "") {
         gridItem[index].innerHTML = chosenMarker[whichMarker];
         whichMarker += 1;
         characterHandler();
@@ -216,10 +216,8 @@ const markerHandler = (function () {
       theGameStructure.playerTwo = "";
     });
 
-  
-      playerOneScore.innerHTML = `${theGameStructure.playerOne} Score: 0`;
-      playerTwoScore.innerHTML = `${theGameStructure.playerTwo} Score: 0`;
-
+    playerOneScore.innerHTML = `${theGameStructure.playerOne} Score: 0`;
+    playerTwoScore.innerHTML = `${theGameStructure.playerTwo} Score: 0`;
 
     gameStartOverlay.style.visibility = "visible";
   });
