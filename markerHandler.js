@@ -156,7 +156,7 @@ const markerHandler = (function () {
   gridItem.forEach((element, index) => {
     element.addEventListener("click", function () {
       randomNumber = Math.random() * 100;
-      if (gridItem[index].innerHTML === "") {
+      if (gridItem[index].innerHTML === "" && computedStyle.visibility === "hidden") {
         gridItem[index].innerHTML = chosenMarker[whichMarker];
         whichMarker += 1;
         characterHandler();
