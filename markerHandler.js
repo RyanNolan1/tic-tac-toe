@@ -206,21 +206,8 @@ const markerHandler = (function () {
   });
 
   newGameButton.addEventListener("click", function () {
-    whichMarker = 0;
-    gameOutComeOverlay.style.visibility = "hidden";
-    gameScore.style.visibility = "visible";
-    gridItem.forEach((element) => {
-      element.innerHTML = "";
-      element.style.backgroundColor = "#424B54";
-      element.style.backgroundImage = "none";
-      theGameStructure.playerTwo = "";
+    window.location.reload();
     });
-
-    playerOneScore.innerHTML = `${theGameStructure.playerOne} Score: 0`;
-    playerTwoScore.innerHTML = `${theGameStructure.playerTwo} Score: 0`;
-
-    gameStartOverlay.style.visibility = "visible";
-  });
 })();
 
 export default markerHandler;
